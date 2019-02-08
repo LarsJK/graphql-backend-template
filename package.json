@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "prisma-client-lib": "^1.26.4",
     "typescript": "^3.3.3"
   }
 }
