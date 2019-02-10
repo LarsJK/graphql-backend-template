@@ -6,6 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist",
+    "deploy": "prisma deploy",
+    "gen": "prisma generate && graphqlgen",
     "dev": "concurrently --kill-others \"tsc -w\" \"nodemon --delay 500ms --inspect dist\""
   },
   "dependencies": {
