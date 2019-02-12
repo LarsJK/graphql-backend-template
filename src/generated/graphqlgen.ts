@@ -166,6 +166,10 @@ export namespace MutationResolvers {
     name: string;
   }
 
+  export interface ArgsDeleteUser {
+    id: string;
+  }
+
   export type CreateUserResolver =
     | ((
         parent: undefined,
@@ -178,6 +182,23 @@ export namespace MutationResolvers {
         resolve: (
           parent: undefined,
           args: ArgsCreateUser,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => User | null | Promise<User | null>;
+      };
+
+  export type DeleteUserResolver =
+    | ((
+        parent: undefined,
+        args: ArgsDeleteUser,
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => User | null | Promise<User | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsDeleteUser,
           ctx: Context,
           info: GraphQLResolveInfo
         ) => User | null | Promise<User | null>;
@@ -196,6 +217,23 @@ export namespace MutationResolvers {
           resolve: (
             parent: undefined,
             args: ArgsCreateUser,
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => User | null | Promise<User | null>;
+        };
+
+    deleteUser:
+      | ((
+          parent: undefined,
+          args: ArgsDeleteUser,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => User | null | Promise<User | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsDeleteUser,
             ctx: Context,
             info: GraphQLResolveInfo
           ) => User | null | Promise<User | null>;
