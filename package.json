@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@types/aws-lambda": "^8.10.19",
+    "@types/graphql": "^14.0.7",
     "@types/ws": "^6.0.1",
+    "apollo-server": "^2.4.0",
+    "graphql": "^14.1.1",
     "graphql-import-loader": "^0.2.1",
-    "graphql-yoga": "^1.17.4",
     "prisma-client-lib": "^1.26.4",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3",
