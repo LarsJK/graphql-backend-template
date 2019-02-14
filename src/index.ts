@@ -1,4 +1,5 @@
 import { GraphQLServer } from "graphql-yoga";
+import * as typeDefs from "./schema.graphql";
 import { resolvers } from "./resolvers";
 import { prisma } from "./generated/prisma-client";
 import { Context } from "./types";
@@ -8,7 +9,7 @@ const context: Context = {
 };
 
 const server = new GraphQLServer({
-  typeDefs: "./schema.graphql",
+  typeDefs,
   resolvers: resolvers as any,
   context
 });
