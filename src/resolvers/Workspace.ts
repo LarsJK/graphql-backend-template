@@ -7,6 +7,10 @@ export const Workspace: WorkspaceResolvers.Type = {
   ...WorkspaceResolvers.defaultResolvers,
 
   workers: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma
+      .workspace({
+        id: parent.id
+      })
+      .workers();
   }
 };
