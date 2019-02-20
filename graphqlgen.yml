@@ -1,5 +1,5 @@
 language: typescript
-schema: ./schema.graphql
+schema: ./src/schema.graphql
 models:
   files:
     - ./src/generated/prisma-client

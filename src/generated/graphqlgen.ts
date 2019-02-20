@@ -241,8 +241,75 @@ export namespace MutationResolvers {
   }
 }
 
+export namespace SubscriptionResolvers {
+  export const defaultResolvers = {};
+
+  export type AddedUserResolver = {
+    subscribe: (
+      parent: undefined,
+      args: {},
+      ctx: Context,
+      info: GraphQLResolveInfo
+    ) => AsyncIterator<User> | Promise<AsyncIterator<User>>;
+    resolve?: (
+      parent: undefined,
+      args: {},
+      ctx: Context,
+      info: GraphQLResolveInfo
+    ) => User | Promise<User>;
+  };
+
+  export type DeletedUserResolver = {
+    subscribe: (
+      parent: undefined,
+      args: {},
+      ctx: Context,
+      info: GraphQLResolveInfo
+    ) => AsyncIterator<User> | Promise<AsyncIterator<User>>;
+    resolve?: (
+      parent: undefined,
+      args: {},
+      ctx: Context,
+      info: GraphQLResolveInfo
+    ) => User | Promise<User>;
+  };
+
+  export interface Type {
+    addedUser: {
+      subscribe: (
+        parent: undefined,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => AsyncIterator<User> | Promise<AsyncIterator<User>>;
+      resolve?: (
+        parent: undefined,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => User | Promise<User>;
+    };
+
+    deletedUser: {
+      subscribe: (
+        parent: undefined,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => AsyncIterator<User> | Promise<AsyncIterator<User>>;
+      resolve?: (
+        parent: undefined,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => User | Promise<User>;
+    };
+  }
+}
+
 export interface Resolvers {
   Query: QueryResolvers.Type;
   User: UserResolvers.Type;
   Mutation: MutationResolvers.Type;
+  Subscription: SubscriptionResolvers.Type;
 }

@@ -8,6 +8,11 @@ type Mutation {
   deleteUser(id: ID!): User
 }
 
+type Subscription {
+  addedUser: User!
+  deletedUser: User!
+}
+
 type User {
   id: ID!
   name: String!
