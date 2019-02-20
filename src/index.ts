@@ -8,10 +8,20 @@ const context: Context = {
   prisma
 };
 
-prisma.createWorkspace({
-  title: "Jupiter",
-  workers: { create: [{ name: "Lars" }] }
-});
+async function seed() {
+  try {
+    const workspace = await prisma.createWorkspace({
+      title: "Mystore",
+      workers: { create: [{ name: "Vegard" }] }
+    });
+    console.log(workspace);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// seed();
+
 const server = new ApolloServer({
   typeDefs,
   resolvers: resolvers as any,
