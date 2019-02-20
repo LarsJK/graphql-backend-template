@@ -7,5 +7,8 @@ export const Query: QueryResolvers.Type = {
   },
   user: (parent, args, ctx) => {
     return ctx.prisma.user({ id: args.userId });
+  },
+  workspaces: (parent, args, ctx) => {
+    return ctx.prisma.workspaces();
   }
 };

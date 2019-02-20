@@ -8,6 +8,10 @@ const context: Context = {
   prisma
 };
 
+prisma.createWorkspace({
+  title: "Jupiter",
+  workers: { create: [{ name: "Lars" }] }
+});
 const server = new ApolloServer({
   typeDefs,
   resolvers: resolvers as any,

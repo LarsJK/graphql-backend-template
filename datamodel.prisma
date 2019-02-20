@@ -2,3 +2,9 @@ type User {
   id: ID! @unique
   name: String!
 }
+
+type Workspace {
+  id: ID! @unique
+  title: String!
+  workers: [User!]!
+}

@@ -15,6 +15,7 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
 
 export interface Exists {
   user: (where?: UserWhereInput) => Promise<boolean>;
+  workspace: (where?: WorkspaceWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -55,6 +56,25 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => UserConnectionPromise;
+  workspace: (where: WorkspaceWhereUniqueInput) => WorkspacePromise;
+  workspaces: (args?: {
+    where?: WorkspaceWhereInput;
+    orderBy?: WorkspaceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Workspace>;
+  workspacesConnection: (args?: {
+    where?: WorkspaceWhereInput;
+    orderBy?: WorkspaceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => WorkspaceConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -77,6 +97,22 @@ export interface Prisma {
   }) => UserPromise;
   deleteUser: (where: UserWhereUniqueInput) => UserPromise;
   deleteManyUsers: (where?: UserWhereInput) => BatchPayloadPromise;
+  createWorkspace: (data: WorkspaceCreateInput) => WorkspacePromise;
+  updateWorkspace: (args: {
+    data: WorkspaceUpdateInput;
+    where: WorkspaceWhereUniqueInput;
+  }) => WorkspacePromise;
+  updateManyWorkspaces: (args: {
+    data: WorkspaceUpdateManyMutationInput;
+    where?: WorkspaceWhereInput;
+  }) => BatchPayloadPromise;
+  upsertWorkspace: (args: {
+    where: WorkspaceWhereUniqueInput;
+    create: WorkspaceCreateInput;
+    update: WorkspaceUpdateInput;
+  }) => WorkspacePromise;
+  deleteWorkspace: (where: WorkspaceWhereUniqueInput) => WorkspacePromise;
+  deleteManyWorkspaces: (where?: WorkspaceWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -89,6 +125,9 @@ export interface Subscription {
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
+  workspace: (
+    where?: WorkspaceSubscriptionWhereInput
+  ) => WorkspaceSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -104,6 +143,16 @@ export type UserOrderByInput =
   | "id_DESC"
   | "name_ASC"
   | "name_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type WorkspaceOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "title_ASC"
+  | "title_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -149,6 +198,47 @@ export interface UserWhereInput {
   NOT?: UserWhereInput[] | UserWhereInput;
 }
 
+export type WorkspaceWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface WorkspaceWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  workers_every?: UserWhereInput;
+  workers_some?: UserWhereInput;
+  workers_none?: UserWhereInput;
+  AND?: WorkspaceWhereInput[] | WorkspaceWhereInput;
+  OR?: WorkspaceWhereInput[] | WorkspaceWhereInput;
+  NOT?: WorkspaceWhereInput[] | WorkspaceWhereInput;
+}
+
 export interface UserCreateInput {
   name: String;
 }
@@ -161,6 +251,101 @@ export interface UserUpdateManyMutationInput {
   name?: String;
 }
 
+export interface WorkspaceCreateInput {
+  title: String;
+  workers?: UserCreateManyInput;
+}
+
+export interface UserCreateManyInput {
+  create?: UserCreateInput[] | UserCreateInput;
+  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+}
+
+export interface WorkspaceUpdateInput {
+  title?: String;
+  workers?: UserUpdateManyInput;
+}
+
+export interface UserUpdateManyInput {
+  create?: UserCreateInput[] | UserCreateInput;
+  update?:
+    | UserUpdateWithWhereUniqueNestedInput[]
+    | UserUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | UserUpsertWithWhereUniqueNestedInput[]
+    | UserUpsertWithWhereUniqueNestedInput;
+  delete?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  set?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  disconnect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  deleteMany?: UserScalarWhereInput[] | UserScalarWhereInput;
+  updateMany?:
+    | UserUpdateManyWithWhereNestedInput[]
+    | UserUpdateManyWithWhereNestedInput;
+}
+
+export interface UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  data: UserUpdateDataInput;
+}
+
+export interface UserUpdateDataInput {
+  name?: String;
+}
+
+export interface UserUpsertWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface UserScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  AND?: UserScalarWhereInput[] | UserScalarWhereInput;
+  OR?: UserScalarWhereInput[] | UserScalarWhereInput;
+  NOT?: UserScalarWhereInput[] | UserScalarWhereInput;
+}
+
+export interface UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput;
+  data: UserUpdateManyDataInput;
+}
+
+export interface UserUpdateManyDataInput {
+  name?: String;
+}
+
+export interface WorkspaceUpdateManyMutationInput {
+  title?: String;
+}
+
 export interface UserSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
@@ -170,6 +355,17 @@ export interface UserSubscriptionWhereInput {
   AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
   OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
   NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+}
+
+export interface WorkspaceSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: WorkspaceWhereInput;
+  AND?: WorkspaceSubscriptionWhereInput[] | WorkspaceSubscriptionWhereInput;
+  OR?: WorkspaceSubscriptionWhereInput[] | WorkspaceSubscriptionWhereInput;
+  NOT?: WorkspaceSubscriptionWhereInput[] | WorkspaceSubscriptionWhereInput;
 }
 
 export interface NodeNode {
@@ -270,6 +466,97 @@ export interface AggregateUserSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Workspace {
+  id: ID_Output;
+  title: String;
+}
+
+export interface WorkspacePromise extends Promise<Workspace>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  workers: <T = FragmentableArray<User>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface WorkspaceSubscription
+  extends Promise<AsyncIterator<Workspace>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  workers: <T = Promise<AsyncIterator<UserSubscription>>>(args?: {
+    where?: UserWhereInput;
+    orderBy?: UserOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface WorkspaceConnection {
+  pageInfo: PageInfo;
+  edges: WorkspaceEdge[];
+}
+
+export interface WorkspaceConnectionPromise
+  extends Promise<WorkspaceConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<WorkspaceEdge>>() => T;
+  aggregate: <T = AggregateWorkspacePromise>() => T;
+}
+
+export interface WorkspaceConnectionSubscription
+  extends Promise<AsyncIterator<WorkspaceConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<WorkspaceEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateWorkspaceSubscription>() => T;
+}
+
+export interface WorkspaceEdge {
+  node: Workspace;
+  cursor: String;
+}
+
+export interface WorkspaceEdgePromise
+  extends Promise<WorkspaceEdge>,
+    Fragmentable {
+  node: <T = WorkspacePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface WorkspaceEdgeSubscription
+  extends Promise<AsyncIterator<WorkspaceEdge>>,
+    Fragmentable {
+  node: <T = WorkspaceSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateWorkspace {
+  count: Int;
+}
+
+export interface AggregateWorkspacePromise
+  extends Promise<AggregateWorkspace>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateWorkspaceSubscription
+  extends Promise<AsyncIterator<AggregateWorkspace>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface BatchPayload {
   count: Long;
 }
@@ -330,6 +617,50 @@ export interface UserPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
 }
 
+export interface WorkspaceSubscriptionPayload {
+  mutation: MutationType;
+  node: Workspace;
+  updatedFields: String[];
+  previousValues: WorkspacePreviousValues;
+}
+
+export interface WorkspaceSubscriptionPayloadPromise
+  extends Promise<WorkspaceSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = WorkspacePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = WorkspacePreviousValuesPromise>() => T;
+}
+
+export interface WorkspaceSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<WorkspaceSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = WorkspaceSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = WorkspacePreviousValuesSubscription>() => T;
+}
+
+export interface WorkspacePreviousValues {
+  id: ID_Output;
+  title: String;
+}
+
+export interface WorkspacePreviousValuesPromise
+  extends Promise<WorkspacePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+}
+
+export interface WorkspacePreviousValuesSubscription
+  extends Promise<AsyncIterator<WorkspacePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+}
+
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
@@ -360,6 +691,10 @@ export type Long = string;
 export const models: Model[] = [
   {
     name: "User",
+    embedded: false
+  },
+  {
+    name: "Workspace",
     embedded: false
   }
 ];

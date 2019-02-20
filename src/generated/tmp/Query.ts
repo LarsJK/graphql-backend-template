@@ -10,5 +10,8 @@ export const Query: QueryResolvers.Type = {
   },
   user: (parent, args, ctx) => {
     throw new Error("Resolver not implemented");
+  },
+  workspaces: (parent, args, ctx) => {
+    throw new Error("Resolver not implemented");
   }
 };

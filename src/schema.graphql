@@ -1,6 +1,7 @@
 type Query {
   users: [User]!
   user(userId: ID!): User
+  workspaces: [Workspace!]!
 }
 
 type Mutation {
@@ -11,4 +12,10 @@ type Mutation {
 type User {
   id: ID!
   name: String!
+}
+
+type Workspace {
+  id: ID!
+  title: String!
+  workers: [User!]!
 }
