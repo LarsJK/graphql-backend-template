@@ -1,10 +1,164 @@
 type User {
-  id: ID! @unique
-  name: String!
+  id: UUID! @unique
+  createdAt: DateTime!
+  email: String! @unique
+  password: String!
+  confirmed: Confirmed!
+  avatar: String
+  characters: [Character!]!
 }
 
-type Workspace {
-  id: ID! @unique
+type Character {
+  id: UUID! @unique
+  createdAt: DateTime!
+  user: User!
+  realm: Realm!
+  name: String!
+  class: Class!
+  guild: Guild
+  events: [Event!]!
+}
+
+type Realm {
+  id: UUID! @unique
+  name: RealmName @unique
+  type: RealmType
+  population: RealmPopulation
+}
+
+type Guild {
+  id: UUID! @unique
+  createdAt: DateTime!
+  realm: Realm!
+  name: String!
+  members: [GuildMember!]!
+  lootingSystem: LootingSystem!
+  posts: [Post!]!
+  events: [Event!]!
+}
+
+type GuildMember {
+  id: UUID! @unique
+  character: Character!
+  guild: Guild!
+  role: GuildRole!
+}
+
+enum GuildRole {
+  Guild
+  Master
+  Officer
+  Member
+  Trail
+}
+
+type Post {
+  id: UUID! @unique
+  createdAt: DateTime!
+  createdBy: Character!
+  guild: Guild
   title: String!
-  workers: [User!]!
+  body: String!
+  media: [PostMedia!]!
+}
+
+type PostMedia {
+  id: UUID! @unique
+  post: Post!
+  url: String!
+}
+
+type Event {
+  id: UUID! @unique
+  type: EventType!
+  createdAt: DateTime!
+  createdBy: Character!
+  title: String!
+  roster: [Character!]!
+  date: DateTime!
+}
+
+enum EventType {
+  BATTLEGROUND
+  WORLD
+  PVP
+  RAID
+  DUNGEON
+}
+
+enum InstanceName {
+  BLACKFATHOM
+  DEEPS
+  DIRE
+  MAUL
+  MARAUDON
+  RAGEFIRE
+  CHASM
+  RAZORFEN
+  RAZORFEN
+  KRAUL
+  RAZORFEN
+  DOWNS
+  WAILING
+  CAVERNS
+  ZUL
+  FARRAK
+}
+
+type Instance {
+  id: UUID! @unique
+  name: InstanceName! @unique
+  Abbreviation: String!
+  image: String!
+  wiki: String!
+  suggestedLevel: String!
+  playersCap: Float!
+  location: String!
+}
+
+# Looting system
+enum LootingSystem {
+  COUNCIL
+  DKP
+}
+
+# Confirm users
+enum Confirmed {
+  CONFIRMED
+  NOTCONFIRMED
+}
+
+# Servers and realms
+enum RealmName {
+  NIGHTHAVEN
+  TWISTING
+  NETHER
+  DEANOR
+  TROLLBANE
+  STROMSCALE
+}
+enum Class {
+  DRUID
+  HUNTER
+  MAGE
+  PALADIN
+  PRIEST
+  ROGUE
+  SHAMAN
+  WARRIOR
+}
+
+enum RealmType {
+  PVP
+  Normal
+  RP
+  RPPVP
+}
+
+enum RealmPopulation {
+  New
+  Players
+  Low
+  Medium
+  Full
 }
