@@ -1,0 +1,12 @@
+type GuildEvent {
+  id: UUID! @unique
+  createdAt: DateTime!
+
+  title: String!
+  startingAt: DateTime!
+
+  instance: Instance!
+  guild: Guild!
+
+  roster: [GuildMember!]!
+}

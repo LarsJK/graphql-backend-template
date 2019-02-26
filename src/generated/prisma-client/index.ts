@@ -14,8 +14,24 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U];
 
 export interface Exists {
+  character: (where?: CharacterWhereInput) => Promise<boolean>;
+  guild: (where?: GuildWhereInput) => Promise<boolean>;
+  guildApplication: (where?: GuildApplicationWhereInput) => Promise<boolean>;
+  guildApplicationForm: (
+    where?: GuildApplicationFormWhereInput
+  ) => Promise<boolean>;
+  guildApplicationFormQuestion: (
+    where?: GuildApplicationFormQuestionWhereInput
+  ) => Promise<boolean>;
+  guildApplicationFormQuestionAnswer: (
+    where?: GuildApplicationFormQuestionAnswerWhereInput
+  ) => Promise<boolean>;
+  guildEvent: (where?: GuildEventWhereInput) => Promise<boolean>;
+  guildMember: (where?: GuildMemberWhereInput) => Promise<boolean>;
+  guildPost: (where?: GuildPostWhereInput) => Promise<boolean>;
+  instance: (where?: InstanceWhereInput) => Promise<boolean>;
+  realm: (where?: RealmWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
-  workspace: (where?: WorkspaceWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -37,6 +53,223 @@ export interface Prisma {
    * Queries
    */
 
+  character: (where: CharacterWhereUniqueInput) => CharacterPromise;
+  characters: (args?: {
+    where?: CharacterWhereInput;
+    orderBy?: CharacterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Character>;
+  charactersConnection: (args?: {
+    where?: CharacterWhereInput;
+    orderBy?: CharacterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => CharacterConnectionPromise;
+  guild: (where: GuildWhereUniqueInput) => GuildPromise;
+  guilds: (args?: {
+    where?: GuildWhereInput;
+    orderBy?: GuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Guild>;
+  guildsConnection: (args?: {
+    where?: GuildWhereInput;
+    orderBy?: GuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildConnectionPromise;
+  guildApplication: (
+    where: GuildApplicationWhereUniqueInput
+  ) => GuildApplicationPromise;
+  guildApplications: (args?: {
+    where?: GuildApplicationWhereInput;
+    orderBy?: GuildApplicationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<GuildApplication>;
+  guildApplicationsConnection: (args?: {
+    where?: GuildApplicationWhereInput;
+    orderBy?: GuildApplicationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildApplicationConnectionPromise;
+  guildApplicationForm: (
+    where: GuildApplicationFormWhereUniqueInput
+  ) => GuildApplicationFormPromise;
+  guildApplicationForms: (args?: {
+    where?: GuildApplicationFormWhereInput;
+    orderBy?: GuildApplicationFormOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<GuildApplicationForm>;
+  guildApplicationFormsConnection: (args?: {
+    where?: GuildApplicationFormWhereInput;
+    orderBy?: GuildApplicationFormOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildApplicationFormConnectionPromise;
+  guildApplicationFormQuestion: (
+    where: GuildApplicationFormQuestionWhereUniqueInput
+  ) => GuildApplicationFormQuestionPromise;
+  guildApplicationFormQuestions: (args?: {
+    where?: GuildApplicationFormQuestionWhereInput;
+    orderBy?: GuildApplicationFormQuestionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<GuildApplicationFormQuestion>;
+  guildApplicationFormQuestionsConnection: (args?: {
+    where?: GuildApplicationFormQuestionWhereInput;
+    orderBy?: GuildApplicationFormQuestionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildApplicationFormQuestionConnectionPromise;
+  guildApplicationFormQuestionAnswer: (
+    where: GuildApplicationFormQuestionAnswerWhereUniqueInput
+  ) => GuildApplicationFormQuestionAnswerPromise;
+  guildApplicationFormQuestionAnswers: (args?: {
+    where?: GuildApplicationFormQuestionAnswerWhereInput;
+    orderBy?: GuildApplicationFormQuestionAnswerOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<GuildApplicationFormQuestionAnswer>;
+  guildApplicationFormQuestionAnswersConnection: (args?: {
+    where?: GuildApplicationFormQuestionAnswerWhereInput;
+    orderBy?: GuildApplicationFormQuestionAnswerOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildApplicationFormQuestionAnswerConnectionPromise;
+  guildEvent: (where: GuildEventWhereUniqueInput) => GuildEventPromise;
+  guildEvents: (args?: {
+    where?: GuildEventWhereInput;
+    orderBy?: GuildEventOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<GuildEvent>;
+  guildEventsConnection: (args?: {
+    where?: GuildEventWhereInput;
+    orderBy?: GuildEventOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildEventConnectionPromise;
+  guildMember: (where: GuildMemberWhereUniqueInput) => GuildMemberPromise;
+  guildMembers: (args?: {
+    where?: GuildMemberWhereInput;
+    orderBy?: GuildMemberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<GuildMember>;
+  guildMembersConnection: (args?: {
+    where?: GuildMemberWhereInput;
+    orderBy?: GuildMemberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildMemberConnectionPromise;
+  guildPost: (where: GuildPostWhereUniqueInput) => GuildPostPromise;
+  guildPosts: (args?: {
+    where?: GuildPostWhereInput;
+    orderBy?: GuildPostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<GuildPost>;
+  guildPostsConnection: (args?: {
+    where?: GuildPostWhereInput;
+    orderBy?: GuildPostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GuildPostConnectionPromise;
+  instance: (where: InstanceWhereUniqueInput) => InstancePromise;
+  instances: (args?: {
+    where?: InstanceWhereInput;
+    orderBy?: InstanceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Instance>;
+  instancesConnection: (args?: {
+    where?: InstanceWhereInput;
+    orderBy?: InstanceOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => InstanceConnectionPromise;
+  realm: (where: RealmWhereUniqueInput) => RealmPromise;
+  realms: (args?: {
+    where?: RealmWhereInput;
+    orderBy?: RealmOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Realm>;
+  realmsConnection: (args?: {
+    where?: RealmWhereInput;
+    orderBy?: RealmOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => RealmConnectionPromise;
   user: (where: UserWhereUniqueInput) => UserPromise;
   users: (args?: {
     where?: UserWhereInput;
@@ -56,31 +289,214 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => UserConnectionPromise;
-  workspace: (where: WorkspaceWhereUniqueInput) => WorkspacePromise;
-  workspaces: (args?: {
-    where?: WorkspaceWhereInput;
-    orderBy?: WorkspaceOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => FragmentableArray<Workspace>;
-  workspacesConnection: (args?: {
-    where?: WorkspaceWhereInput;
-    orderBy?: WorkspaceOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => WorkspaceConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
    * Mutations
    */
 
+  createCharacter: (data: CharacterCreateInput) => CharacterPromise;
+  updateCharacter: (args: {
+    data: CharacterUpdateInput;
+    where: CharacterWhereUniqueInput;
+  }) => CharacterPromise;
+  updateManyCharacters: (args: {
+    data: CharacterUpdateManyMutationInput;
+    where?: CharacterWhereInput;
+  }) => BatchPayloadPromise;
+  upsertCharacter: (args: {
+    where: CharacterWhereUniqueInput;
+    create: CharacterCreateInput;
+    update: CharacterUpdateInput;
+  }) => CharacterPromise;
+  deleteCharacter: (where: CharacterWhereUniqueInput) => CharacterPromise;
+  deleteManyCharacters: (where?: CharacterWhereInput) => BatchPayloadPromise;
+  createGuild: (data: GuildCreateInput) => GuildPromise;
+  updateGuild: (args: {
+    data: GuildUpdateInput;
+    where: GuildWhereUniqueInput;
+  }) => GuildPromise;
+  updateManyGuilds: (args: {
+    data: GuildUpdateManyMutationInput;
+    where?: GuildWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuild: (args: {
+    where: GuildWhereUniqueInput;
+    create: GuildCreateInput;
+    update: GuildUpdateInput;
+  }) => GuildPromise;
+  deleteGuild: (where: GuildWhereUniqueInput) => GuildPromise;
+  deleteManyGuilds: (where?: GuildWhereInput) => BatchPayloadPromise;
+  createGuildApplication: (
+    data: GuildApplicationCreateInput
+  ) => GuildApplicationPromise;
+  updateGuildApplication: (args: {
+    data: GuildApplicationUpdateInput;
+    where: GuildApplicationWhereUniqueInput;
+  }) => GuildApplicationPromise;
+  updateManyGuildApplications: (args: {
+    data: GuildApplicationUpdateManyMutationInput;
+    where?: GuildApplicationWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuildApplication: (args: {
+    where: GuildApplicationWhereUniqueInput;
+    create: GuildApplicationCreateInput;
+    update: GuildApplicationUpdateInput;
+  }) => GuildApplicationPromise;
+  deleteGuildApplication: (
+    where: GuildApplicationWhereUniqueInput
+  ) => GuildApplicationPromise;
+  deleteManyGuildApplications: (
+    where?: GuildApplicationWhereInput
+  ) => BatchPayloadPromise;
+  createGuildApplicationForm: (
+    data: GuildApplicationFormCreateInput
+  ) => GuildApplicationFormPromise;
+  updateGuildApplicationForm: (args: {
+    data: GuildApplicationFormUpdateInput;
+    where: GuildApplicationFormWhereUniqueInput;
+  }) => GuildApplicationFormPromise;
+  updateManyGuildApplicationForms: (args: {
+    data: GuildApplicationFormUpdateManyMutationInput;
+    where?: GuildApplicationFormWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuildApplicationForm: (args: {
+    where: GuildApplicationFormWhereUniqueInput;
+    create: GuildApplicationFormCreateInput;
+    update: GuildApplicationFormUpdateInput;
+  }) => GuildApplicationFormPromise;
+  deleteGuildApplicationForm: (
+    where: GuildApplicationFormWhereUniqueInput
+  ) => GuildApplicationFormPromise;
+  deleteManyGuildApplicationForms: (
+    where?: GuildApplicationFormWhereInput
+  ) => BatchPayloadPromise;
+  createGuildApplicationFormQuestion: (
+    data: GuildApplicationFormQuestionCreateInput
+  ) => GuildApplicationFormQuestionPromise;
+  updateGuildApplicationFormQuestion: (args: {
+    data: GuildApplicationFormQuestionUpdateInput;
+    where: GuildApplicationFormQuestionWhereUniqueInput;
+  }) => GuildApplicationFormQuestionPromise;
+  updateManyGuildApplicationFormQuestions: (args: {
+    data: GuildApplicationFormQuestionUpdateManyMutationInput;
+    where?: GuildApplicationFormQuestionWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuildApplicationFormQuestion: (args: {
+    where: GuildApplicationFormQuestionWhereUniqueInput;
+    create: GuildApplicationFormQuestionCreateInput;
+    update: GuildApplicationFormQuestionUpdateInput;
+  }) => GuildApplicationFormQuestionPromise;
+  deleteGuildApplicationFormQuestion: (
+    where: GuildApplicationFormQuestionWhereUniqueInput
+  ) => GuildApplicationFormQuestionPromise;
+  deleteManyGuildApplicationFormQuestions: (
+    where?: GuildApplicationFormQuestionWhereInput
+  ) => BatchPayloadPromise;
+  createGuildApplicationFormQuestionAnswer: (
+    data: GuildApplicationFormQuestionAnswerCreateInput
+  ) => GuildApplicationFormQuestionAnswerPromise;
+  updateGuildApplicationFormQuestionAnswer: (args: {
+    data: GuildApplicationFormQuestionAnswerUpdateInput;
+    where: GuildApplicationFormQuestionAnswerWhereUniqueInput;
+  }) => GuildApplicationFormQuestionAnswerPromise;
+  updateManyGuildApplicationFormQuestionAnswers: (args: {
+    data: GuildApplicationFormQuestionAnswerUpdateManyMutationInput;
+    where?: GuildApplicationFormQuestionAnswerWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuildApplicationFormQuestionAnswer: (args: {
+    where: GuildApplicationFormQuestionAnswerWhereUniqueInput;
+    create: GuildApplicationFormQuestionAnswerCreateInput;
+    update: GuildApplicationFormQuestionAnswerUpdateInput;
+  }) => GuildApplicationFormQuestionAnswerPromise;
+  deleteGuildApplicationFormQuestionAnswer: (
+    where: GuildApplicationFormQuestionAnswerWhereUniqueInput
+  ) => GuildApplicationFormQuestionAnswerPromise;
+  deleteManyGuildApplicationFormQuestionAnswers: (
+    where?: GuildApplicationFormQuestionAnswerWhereInput
+  ) => BatchPayloadPromise;
+  createGuildEvent: (data: GuildEventCreateInput) => GuildEventPromise;
+  updateGuildEvent: (args: {
+    data: GuildEventUpdateInput;
+    where: GuildEventWhereUniqueInput;
+  }) => GuildEventPromise;
+  updateManyGuildEvents: (args: {
+    data: GuildEventUpdateManyMutationInput;
+    where?: GuildEventWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuildEvent: (args: {
+    where: GuildEventWhereUniqueInput;
+    create: GuildEventCreateInput;
+    update: GuildEventUpdateInput;
+  }) => GuildEventPromise;
+  deleteGuildEvent: (where: GuildEventWhereUniqueInput) => GuildEventPromise;
+  deleteManyGuildEvents: (where?: GuildEventWhereInput) => BatchPayloadPromise;
+  createGuildMember: (data: GuildMemberCreateInput) => GuildMemberPromise;
+  updateGuildMember: (args: {
+    data: GuildMemberUpdateInput;
+    where: GuildMemberWhereUniqueInput;
+  }) => GuildMemberPromise;
+  updateManyGuildMembers: (args: {
+    data: GuildMemberUpdateManyMutationInput;
+    where?: GuildMemberWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuildMember: (args: {
+    where: GuildMemberWhereUniqueInput;
+    create: GuildMemberCreateInput;
+    update: GuildMemberUpdateInput;
+  }) => GuildMemberPromise;
+  deleteGuildMember: (where: GuildMemberWhereUniqueInput) => GuildMemberPromise;
+  deleteManyGuildMembers: (
+    where?: GuildMemberWhereInput
+  ) => BatchPayloadPromise;
+  createGuildPost: (data: GuildPostCreateInput) => GuildPostPromise;
+  updateGuildPost: (args: {
+    data: GuildPostUpdateInput;
+    where: GuildPostWhereUniqueInput;
+  }) => GuildPostPromise;
+  updateManyGuildPosts: (args: {
+    data: GuildPostUpdateManyMutationInput;
+    where?: GuildPostWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGuildPost: (args: {
+    where: GuildPostWhereUniqueInput;
+    create: GuildPostCreateInput;
+    update: GuildPostUpdateInput;
+  }) => GuildPostPromise;
+  deleteGuildPost: (where: GuildPostWhereUniqueInput) => GuildPostPromise;
+  deleteManyGuildPosts: (where?: GuildPostWhereInput) => BatchPayloadPromise;
+  createInstance: (data: InstanceCreateInput) => InstancePromise;
+  updateInstance: (args: {
+    data: InstanceUpdateInput;
+    where: InstanceWhereUniqueInput;
+  }) => InstancePromise;
+  updateManyInstances: (args: {
+    data: InstanceUpdateManyMutationInput;
+    where?: InstanceWhereInput;
+  }) => BatchPayloadPromise;
+  upsertInstance: (args: {
+    where: InstanceWhereUniqueInput;
+    create: InstanceCreateInput;
+    update: InstanceUpdateInput;
+  }) => InstancePromise;
+  deleteInstance: (where: InstanceWhereUniqueInput) => InstancePromise;
+  deleteManyInstances: (where?: InstanceWhereInput) => BatchPayloadPromise;
+  createRealm: (data: RealmCreateInput) => RealmPromise;
+  updateRealm: (args: {
+    data: RealmUpdateInput;
+    where: RealmWhereUniqueInput;
+  }) => RealmPromise;
+  updateManyRealms: (args: {
+    data: RealmUpdateManyMutationInput;
+    where?: RealmWhereInput;
+  }) => BatchPayloadPromise;
+  upsertRealm: (args: {
+    where: RealmWhereUniqueInput;
+    create: RealmCreateInput;
+    update: RealmUpdateInput;
+  }) => RealmPromise;
+  deleteRealm: (where: RealmWhereUniqueInput) => RealmPromise;
+  deleteManyRealms: (where?: RealmWhereInput) => BatchPayloadPromise;
   createUser: (data: UserCreateInput) => UserPromise;
   updateUser: (args: {
     data: UserUpdateInput;
@@ -97,22 +513,6 @@ export interface Prisma {
   }) => UserPromise;
   deleteUser: (where: UserWhereUniqueInput) => UserPromise;
   deleteManyUsers: (where?: UserWhereInput) => BatchPayloadPromise;
-  createWorkspace: (data: WorkspaceCreateInput) => WorkspacePromise;
-  updateWorkspace: (args: {
-    data: WorkspaceUpdateInput;
-    where: WorkspaceWhereUniqueInput;
-  }) => WorkspacePromise;
-  updateManyWorkspaces: (args: {
-    data: WorkspaceUpdateManyMutationInput;
-    where?: WorkspaceWhereInput;
-  }) => BatchPayloadPromise;
-  upsertWorkspace: (args: {
-    where: WorkspaceWhereUniqueInput;
-    create: WorkspaceCreateInput;
-    update: WorkspaceUpdateInput;
-  }) => WorkspacePromise;
-  deleteWorkspace: (where: WorkspaceWhereUniqueInput) => WorkspacePromise;
-  deleteManyWorkspaces: (where?: WorkspaceWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -122,12 +522,42 @@ export interface Prisma {
 }
 
 export interface Subscription {
+  character: (
+    where?: CharacterSubscriptionWhereInput
+  ) => CharacterSubscriptionPayloadSubscription;
+  guild: (
+    where?: GuildSubscriptionWhereInput
+  ) => GuildSubscriptionPayloadSubscription;
+  guildApplication: (
+    where?: GuildApplicationSubscriptionWhereInput
+  ) => GuildApplicationSubscriptionPayloadSubscription;
+  guildApplicationForm: (
+    where?: GuildApplicationFormSubscriptionWhereInput
+  ) => GuildApplicationFormSubscriptionPayloadSubscription;
+  guildApplicationFormQuestion: (
+    where?: GuildApplicationFormQuestionSubscriptionWhereInput
+  ) => GuildApplicationFormQuestionSubscriptionPayloadSubscription;
+  guildApplicationFormQuestionAnswer: (
+    where?: GuildApplicationFormQuestionAnswerSubscriptionWhereInput
+  ) => GuildApplicationFormQuestionAnswerSubscriptionPayloadSubscription;
+  guildEvent: (
+    where?: GuildEventSubscriptionWhereInput
+  ) => GuildEventSubscriptionPayloadSubscription;
+  guildMember: (
+    where?: GuildMemberSubscriptionWhereInput
+  ) => GuildMemberSubscriptionPayloadSubscription;
+  guildPost: (
+    where?: GuildPostSubscriptionWhereInput
+  ) => GuildPostSubscriptionPayloadSubscription;
+  instance: (
+    where?: InstanceSubscriptionWhereInput
+  ) => InstanceSubscriptionPayloadSubscription;
+  realm: (
+    where?: RealmSubscriptionWhereInput
+  ) => RealmSubscriptionPayloadSubscription;
   user: (
     where?: UserSubscriptionWhereInput
   ) => UserSubscriptionPayloadSubscription;
-  workspace: (
-    where?: WorkspaceSubscriptionWhereInput
-  ) => WorkspaceSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -138,47 +568,222 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type UserOrderByInput =
+export type RealmType = "RP" | "RPPVP" | "PVP" | "NORMAL" | "PVE";
+
+export type RealmPopulation = "LOW" | "NORMAL" | "HIGH" | "FULL";
+
+export type GuildLootingSystem = "DKP" | "COUNCIL" | "CUSTOM" | "NONE";
+
+export type GuildRole = "GuildMaster" | "Officer" | "Member" | "Trail" | "Alt";
+
+export type Role = "TANK" | "MELEE" | "RANGED" | "HEALER";
+
+export type GuildApplicationStatus = "ACCEPTED" | "DECLINED" | "NEW";
+
+export type CharacterClassEnum =
+  | "DRUID"
+  | "HUNTER"
+  | "MAGE"
+  | "PALADIN"
+  | "PRIEST"
+  | "ROGUE"
+  | "SHAMAN"
+  | "WARLOCK"
+  | "WARRIOR";
+
+export type CharacterOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
   | "name_ASC"
   | "name_DESC"
+  | "class_ASC"
+  | "class_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GuildOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "avatar_ASC"
+  | "avatar_DESC"
+  | "lootingSystem_ASC"
+  | "lootingSystem_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GuildMemberOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "guildRole_ASC"
+  | "guildRole_DESC"
+  | "role_ASC"
+  | "role_DESC"
+  | "dkp_ASC"
+  | "dkp_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type WorkspaceOrderByInput =
+export type GuildEventOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "title_ASC"
-  | "title_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "startingAt_ASC"
+  | "startingAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GuildPostOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "body_ASC"
+  | "body_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GuildApplicationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "comment_ASC"
+  | "comment_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GuildApplicationFormQuestionAnswerOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "answer_ASC"
+  | "answer_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GuildApplicationFormQuestionOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "question_ASC"
+  | "question_DESC"
+  | "sequence_ASC"
+  | "sequence_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GuildApplicationFormOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "lastUpdatedAt_ASC"
+  | "lastUpdatedAt_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type InstanceOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "Abbreviation_ASC"
+  | "Abbreviation_DESC"
+  | "image_ASC"
+  | "image_DESC"
+  | "wiki_ASC"
+  | "wiki_DESC"
+  | "suggestedLevel_ASC"
+  | "suggestedLevel_DESC"
+  | "playersCap_ASC"
+  | "playersCap_DESC"
+  | "location_ASC"
+  | "location_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type RealmOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "type_ASC"
+  | "type_DESC"
+  | "population_ASC"
+  | "population_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "displayName_ASC"
+  | "displayName_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "password_ASC"
+  | "password_DESC"
+  | "confirmed_ASC"
+  | "confirmed_DESC"
+  | "avatar_ASC"
+  | "avatar_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
+export type CharacterWhereUniqueInput = AtLeastOne<{
+  id: UUID;
 }>;
 
-export interface UserWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
+export interface CharacterWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  user?: UserWhereInput;
+  realm?: RealmWhereInput;
   name?: String;
   name_not?: String;
   name_in?: String[] | String;
@@ -193,30 +798,294 @@ export interface UserWhereInput {
   name_not_starts_with?: String;
   name_ends_with?: String;
   name_not_ends_with?: String;
+  class?: CharacterClassEnum;
+  class_not?: CharacterClassEnum;
+  class_in?: CharacterClassEnum[] | CharacterClassEnum;
+  class_not_in?: CharacterClassEnum[] | CharacterClassEnum;
+  guild?: GuildMemberWhereInput;
+  applications_every?: GuildApplicationWhereInput;
+  applications_some?: GuildApplicationWhereInput;
+  applications_none?: GuildApplicationWhereInput;
+  AND?: CharacterWhereInput[] | CharacterWhereInput;
+  OR?: CharacterWhereInput[] | CharacterWhereInput;
+  NOT?: CharacterWhereInput[] | CharacterWhereInput;
+}
+
+export interface UserWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  displayName?: String;
+  displayName_not?: String;
+  displayName_in?: String[] | String;
+  displayName_not_in?: String[] | String;
+  displayName_lt?: String;
+  displayName_lte?: String;
+  displayName_gt?: String;
+  displayName_gte?: String;
+  displayName_contains?: String;
+  displayName_not_contains?: String;
+  displayName_starts_with?: String;
+  displayName_not_starts_with?: String;
+  displayName_ends_with?: String;
+  displayName_not_ends_with?: String;
+  email?: String;
+  email_not?: String;
+  email_in?: String[] | String;
+  email_not_in?: String[] | String;
+  email_lt?: String;
+  email_lte?: String;
+  email_gt?: String;
+  email_gte?: String;
+  email_contains?: String;
+  email_not_contains?: String;
+  email_starts_with?: String;
+  email_not_starts_with?: String;
+  email_ends_with?: String;
+  email_not_ends_with?: String;
+  password?: String;
+  password_not?: String;
+  password_in?: String[] | String;
+  password_not_in?: String[] | String;
+  password_lt?: String;
+  password_lte?: String;
+  password_gt?: String;
+  password_gte?: String;
+  password_contains?: String;
+  password_not_contains?: String;
+  password_starts_with?: String;
+  password_not_starts_with?: String;
+  password_ends_with?: String;
+  password_not_ends_with?: String;
+  confirmed?: Boolean;
+  confirmed_not?: Boolean;
+  avatar?: String;
+  avatar_not?: String;
+  avatar_in?: String[] | String;
+  avatar_not_in?: String[] | String;
+  avatar_lt?: String;
+  avatar_lte?: String;
+  avatar_gt?: String;
+  avatar_gte?: String;
+  avatar_contains?: String;
+  avatar_not_contains?: String;
+  avatar_starts_with?: String;
+  avatar_not_starts_with?: String;
+  avatar_ends_with?: String;
+  avatar_not_ends_with?: String;
+  characters_every?: CharacterWhereInput;
+  characters_some?: CharacterWhereInput;
+  characters_none?: CharacterWhereInput;
   AND?: UserWhereInput[] | UserWhereInput;
   OR?: UserWhereInput[] | UserWhereInput;
   NOT?: UserWhereInput[] | UserWhereInput;
 }
 
-export type WorkspaceWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
+export interface RealmWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  type?: RealmType;
+  type_not?: RealmType;
+  type_in?: RealmType[] | RealmType;
+  type_not_in?: RealmType[] | RealmType;
+  population?: RealmPopulation;
+  population_not?: RealmPopulation;
+  population_in?: RealmPopulation[] | RealmPopulation;
+  population_not_in?: RealmPopulation[] | RealmPopulation;
+  characters_every?: CharacterWhereInput;
+  characters_some?: CharacterWhereInput;
+  characters_none?: CharacterWhereInput;
+  guilds_every?: GuildWhereInput;
+  guilds_some?: GuildWhereInput;
+  guilds_none?: GuildWhereInput;
+  AND?: RealmWhereInput[] | RealmWhereInput;
+  OR?: RealmWhereInput[] | RealmWhereInput;
+  NOT?: RealmWhereInput[] | RealmWhereInput;
+}
 
-export interface WorkspaceWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
+export interface GuildWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  avatar?: String;
+  avatar_not?: String;
+  avatar_in?: String[] | String;
+  avatar_not_in?: String[] | String;
+  avatar_lt?: String;
+  avatar_lte?: String;
+  avatar_gt?: String;
+  avatar_gte?: String;
+  avatar_contains?: String;
+  avatar_not_contains?: String;
+  avatar_starts_with?: String;
+  avatar_not_starts_with?: String;
+  avatar_ends_with?: String;
+  avatar_not_ends_with?: String;
+  realm?: RealmWhereInput;
+  lootingSystem?: GuildLootingSystem;
+  lootingSystem_not?: GuildLootingSystem;
+  lootingSystem_in?: GuildLootingSystem[] | GuildLootingSystem;
+  lootingSystem_not_in?: GuildLootingSystem[] | GuildLootingSystem;
+  roster_every?: GuildMemberWhereInput;
+  roster_some?: GuildMemberWhereInput;
+  roster_none?: GuildMemberWhereInput;
+  posts_every?: GuildPostWhereInput;
+  posts_some?: GuildPostWhereInput;
+  posts_none?: GuildPostWhereInput;
+  events_every?: GuildEventWhereInput;
+  events_some?: GuildEventWhereInput;
+  events_none?: GuildEventWhereInput;
+  applications_every?: GuildApplicationWhereInput;
+  applications_some?: GuildApplicationWhereInput;
+  applications_none?: GuildApplicationWhereInput;
+  applicationForm?: GuildApplicationFormWhereInput;
+  AND?: GuildWhereInput[] | GuildWhereInput;
+  OR?: GuildWhereInput[] | GuildWhereInput;
+  NOT?: GuildWhereInput[] | GuildWhereInput;
+}
+
+export interface GuildMemberWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  character?: CharacterWhereInput;
+  guild?: GuildWhereInput;
+  guildRole?: GuildRole;
+  guildRole_not?: GuildRole;
+  guildRole_in?: GuildRole[] | GuildRole;
+  guildRole_not_in?: GuildRole[] | GuildRole;
+  role?: Role;
+  role_not?: Role;
+  role_in?: Role[] | Role;
+  role_not_in?: Role[] | Role;
+  dkp?: Float;
+  dkp_not?: Float;
+  dkp_in?: Float[] | Float;
+  dkp_not_in?: Float[] | Float;
+  dkp_lt?: Float;
+  dkp_lte?: Float;
+  dkp_gt?: Float;
+  dkp_gte?: Float;
+  events_every?: GuildEventWhereInput;
+  events_some?: GuildEventWhereInput;
+  events_none?: GuildEventWhereInput;
+  AND?: GuildMemberWhereInput[] | GuildMemberWhereInput;
+  OR?: GuildMemberWhereInput[] | GuildMemberWhereInput;
+  NOT?: GuildMemberWhereInput[] | GuildMemberWhereInput;
+}
+
+export interface GuildEventWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
   title?: String;
   title_not?: String;
   title_in?: String[] | String;
@@ -231,89 +1100,39 @@ export interface WorkspaceWhereInput {
   title_not_starts_with?: String;
   title_ends_with?: String;
   title_not_ends_with?: String;
-  workers_every?: UserWhereInput;
-  workers_some?: UserWhereInput;
-  workers_none?: UserWhereInput;
-  AND?: WorkspaceWhereInput[] | WorkspaceWhereInput;
-  OR?: WorkspaceWhereInput[] | WorkspaceWhereInput;
-  NOT?: WorkspaceWhereInput[] | WorkspaceWhereInput;
+  startingAt?: DateTimeInput;
+  startingAt_not?: DateTimeInput;
+  startingAt_in?: DateTimeInput[] | DateTimeInput;
+  startingAt_not_in?: DateTimeInput[] | DateTimeInput;
+  startingAt_lt?: DateTimeInput;
+  startingAt_lte?: DateTimeInput;
+  startingAt_gt?: DateTimeInput;
+  startingAt_gte?: DateTimeInput;
+  instance?: InstanceWhereInput;
+  guild?: GuildWhereInput;
+  roster_every?: GuildMemberWhereInput;
+  roster_some?: GuildMemberWhereInput;
+  roster_none?: GuildMemberWhereInput;
+  AND?: GuildEventWhereInput[] | GuildEventWhereInput;
+  OR?: GuildEventWhereInput[] | GuildEventWhereInput;
+  NOT?: GuildEventWhereInput[] | GuildEventWhereInput;
 }
 
-export interface UserCreateInput {
-  name: String;
-}
-
-export interface UserUpdateInput {
-  name?: String;
-}
-
-export interface UserUpdateManyMutationInput {
-  name?: String;
-}
-
-export interface WorkspaceCreateInput {
-  title: String;
-  workers?: UserCreateManyInput;
-}
-
-export interface UserCreateManyInput {
-  create?: UserCreateInput[] | UserCreateInput;
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-}
-
-export interface WorkspaceUpdateInput {
-  title?: String;
-  workers?: UserUpdateManyInput;
-}
-
-export interface UserUpdateManyInput {
-  create?: UserCreateInput[] | UserCreateInput;
-  update?:
-    | UserUpdateWithWhereUniqueNestedInput[]
-    | UserUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | UserUpsertWithWhereUniqueNestedInput[]
-    | UserUpsertWithWhereUniqueNestedInput;
-  delete?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  set?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  disconnect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  deleteMany?: UserScalarWhereInput[] | UserScalarWhereInput;
-  updateMany?:
-    | UserUpdateManyWithWhereNestedInput[]
-    | UserUpdateManyWithWhereNestedInput;
-}
-
-export interface UserUpdateWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput;
-  data: UserUpdateDataInput;
-}
-
-export interface UserUpdateDataInput {
-  name?: String;
-}
-
-export interface UserUpsertWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput;
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
-}
-
-export interface UserScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
+export interface InstanceWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
   name?: String;
   name_not?: String;
   name_in?: String[] | String;
@@ -328,22 +1147,2428 @@ export interface UserScalarWhereInput {
   name_not_starts_with?: String;
   name_ends_with?: String;
   name_not_ends_with?: String;
-  AND?: UserScalarWhereInput[] | UserScalarWhereInput;
-  OR?: UserScalarWhereInput[] | UserScalarWhereInput;
-  NOT?: UserScalarWhereInput[] | UserScalarWhereInput;
+  Abbreviation?: String;
+  Abbreviation_not?: String;
+  Abbreviation_in?: String[] | String;
+  Abbreviation_not_in?: String[] | String;
+  Abbreviation_lt?: String;
+  Abbreviation_lte?: String;
+  Abbreviation_gt?: String;
+  Abbreviation_gte?: String;
+  Abbreviation_contains?: String;
+  Abbreviation_not_contains?: String;
+  Abbreviation_starts_with?: String;
+  Abbreviation_not_starts_with?: String;
+  Abbreviation_ends_with?: String;
+  Abbreviation_not_ends_with?: String;
+  image?: String;
+  image_not?: String;
+  image_in?: String[] | String;
+  image_not_in?: String[] | String;
+  image_lt?: String;
+  image_lte?: String;
+  image_gt?: String;
+  image_gte?: String;
+  image_contains?: String;
+  image_not_contains?: String;
+  image_starts_with?: String;
+  image_not_starts_with?: String;
+  image_ends_with?: String;
+  image_not_ends_with?: String;
+  wiki?: String;
+  wiki_not?: String;
+  wiki_in?: String[] | String;
+  wiki_not_in?: String[] | String;
+  wiki_lt?: String;
+  wiki_lte?: String;
+  wiki_gt?: String;
+  wiki_gte?: String;
+  wiki_contains?: String;
+  wiki_not_contains?: String;
+  wiki_starts_with?: String;
+  wiki_not_starts_with?: String;
+  wiki_ends_with?: String;
+  wiki_not_ends_with?: String;
+  suggestedLevel?: String;
+  suggestedLevel_not?: String;
+  suggestedLevel_in?: String[] | String;
+  suggestedLevel_not_in?: String[] | String;
+  suggestedLevel_lt?: String;
+  suggestedLevel_lte?: String;
+  suggestedLevel_gt?: String;
+  suggestedLevel_gte?: String;
+  suggestedLevel_contains?: String;
+  suggestedLevel_not_contains?: String;
+  suggestedLevel_starts_with?: String;
+  suggestedLevel_not_starts_with?: String;
+  suggestedLevel_ends_with?: String;
+  suggestedLevel_not_ends_with?: String;
+  playersCap?: Float;
+  playersCap_not?: Float;
+  playersCap_in?: Float[] | Float;
+  playersCap_not_in?: Float[] | Float;
+  playersCap_lt?: Float;
+  playersCap_lte?: Float;
+  playersCap_gt?: Float;
+  playersCap_gte?: Float;
+  location?: String;
+  location_not?: String;
+  location_in?: String[] | String;
+  location_not_in?: String[] | String;
+  location_lt?: String;
+  location_lte?: String;
+  location_gt?: String;
+  location_gte?: String;
+  location_contains?: String;
+  location_not_contains?: String;
+  location_starts_with?: String;
+  location_not_starts_with?: String;
+  location_ends_with?: String;
+  location_not_ends_with?: String;
+  AND?: InstanceWhereInput[] | InstanceWhereInput;
+  OR?: InstanceWhereInput[] | InstanceWhereInput;
+  NOT?: InstanceWhereInput[] | InstanceWhereInput;
 }
 
-export interface UserUpdateManyWithWhereNestedInput {
-  where: UserScalarWhereInput;
-  data: UserUpdateManyDataInput;
-}
-
-export interface UserUpdateManyDataInput {
-  name?: String;
-}
-
-export interface WorkspaceUpdateManyMutationInput {
+export interface GuildPostWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  guild?: GuildWhereInput;
   title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  body?: String;
+  body_not?: String;
+  body_in?: String[] | String;
+  body_not_in?: String[] | String;
+  body_lt?: String;
+  body_lte?: String;
+  body_gt?: String;
+  body_gte?: String;
+  body_contains?: String;
+  body_not_contains?: String;
+  body_starts_with?: String;
+  body_not_starts_with?: String;
+  body_ends_with?: String;
+  body_not_ends_with?: String;
+  AND?: GuildPostWhereInput[] | GuildPostWhereInput;
+  OR?: GuildPostWhereInput[] | GuildPostWhereInput;
+  NOT?: GuildPostWhereInput[] | GuildPostWhereInput;
+}
+
+export interface GuildApplicationWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  guild?: GuildWhereInput;
+  character?: CharacterWhereInput;
+  answers_every?: GuildApplicationFormQuestionAnswerWhereInput;
+  answers_some?: GuildApplicationFormQuestionAnswerWhereInput;
+  answers_none?: GuildApplicationFormQuestionAnswerWhereInput;
+  status?: GuildApplicationStatus;
+  status_not?: GuildApplicationStatus;
+  status_in?: GuildApplicationStatus[] | GuildApplicationStatus;
+  status_not_in?: GuildApplicationStatus[] | GuildApplicationStatus;
+  comment?: String;
+  comment_not?: String;
+  comment_in?: String[] | String;
+  comment_not_in?: String[] | String;
+  comment_lt?: String;
+  comment_lte?: String;
+  comment_gt?: String;
+  comment_gte?: String;
+  comment_contains?: String;
+  comment_not_contains?: String;
+  comment_starts_with?: String;
+  comment_not_starts_with?: String;
+  comment_ends_with?: String;
+  comment_not_ends_with?: String;
+  AND?: GuildApplicationWhereInput[] | GuildApplicationWhereInput;
+  OR?: GuildApplicationWhereInput[] | GuildApplicationWhereInput;
+  NOT?: GuildApplicationWhereInput[] | GuildApplicationWhereInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  application?: GuildApplicationWhereInput;
+  question?: GuildApplicationFormQuestionWhereInput;
+  answer?: String;
+  answer_not?: String;
+  answer_in?: String[] | String;
+  answer_not_in?: String[] | String;
+  answer_lt?: String;
+  answer_lte?: String;
+  answer_gt?: String;
+  answer_gte?: String;
+  answer_contains?: String;
+  answer_not_contains?: String;
+  answer_starts_with?: String;
+  answer_not_starts_with?: String;
+  answer_ends_with?: String;
+  answer_not_ends_with?: String;
+  AND?:
+    | GuildApplicationFormQuestionAnswerWhereInput[]
+    | GuildApplicationFormQuestionAnswerWhereInput;
+  OR?:
+    | GuildApplicationFormQuestionAnswerWhereInput[]
+    | GuildApplicationFormQuestionAnswerWhereInput;
+  NOT?:
+    | GuildApplicationFormQuestionAnswerWhereInput[]
+    | GuildApplicationFormQuestionAnswerWhereInput;
+}
+
+export interface GuildApplicationFormQuestionWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  guildApplicationForm?: GuildApplicationFormWhereInput;
+  question?: String;
+  question_not?: String;
+  question_in?: String[] | String;
+  question_not_in?: String[] | String;
+  question_lt?: String;
+  question_lte?: String;
+  question_gt?: String;
+  question_gte?: String;
+  question_contains?: String;
+  question_not_contains?: String;
+  question_starts_with?: String;
+  question_not_starts_with?: String;
+  question_ends_with?: String;
+  question_not_ends_with?: String;
+  sequence?: Float;
+  sequence_not?: Float;
+  sequence_in?: Float[] | Float;
+  sequence_not_in?: Float[] | Float;
+  sequence_lt?: Float;
+  sequence_lte?: Float;
+  sequence_gt?: Float;
+  sequence_gte?: Float;
+  AND?:
+    | GuildApplicationFormQuestionWhereInput[]
+    | GuildApplicationFormQuestionWhereInput;
+  OR?:
+    | GuildApplicationFormQuestionWhereInput[]
+    | GuildApplicationFormQuestionWhereInput;
+  NOT?:
+    | GuildApplicationFormQuestionWhereInput[]
+    | GuildApplicationFormQuestionWhereInput;
+}
+
+export interface GuildApplicationFormWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  lastUpdatedAt?: DateTimeInput;
+  lastUpdatedAt_not?: DateTimeInput;
+  lastUpdatedAt_in?: DateTimeInput[] | DateTimeInput;
+  lastUpdatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  lastUpdatedAt_lt?: DateTimeInput;
+  lastUpdatedAt_lte?: DateTimeInput;
+  lastUpdatedAt_gt?: DateTimeInput;
+  lastUpdatedAt_gte?: DateTimeInput;
+  guild?: GuildWhereInput;
+  questions_every?: GuildApplicationFormQuestionWhereInput;
+  questions_some?: GuildApplicationFormQuestionWhereInput;
+  questions_none?: GuildApplicationFormQuestionWhereInput;
+  AND?: GuildApplicationFormWhereInput[] | GuildApplicationFormWhereInput;
+  OR?: GuildApplicationFormWhereInput[] | GuildApplicationFormWhereInput;
+  NOT?: GuildApplicationFormWhereInput[] | GuildApplicationFormWhereInput;
+}
+
+export type GuildWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type GuildApplicationWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type GuildApplicationFormWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type GuildApplicationFormQuestionWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type GuildApplicationFormQuestionAnswerWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type GuildEventWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type GuildMemberWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type GuildPostWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+}>;
+
+export type InstanceWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+  name?: String;
+}>;
+
+export type RealmWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+  name?: String;
+}>;
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: UUID;
+  email?: String;
+}>;
+
+export interface CharacterCreateInput {
+  user: UserCreateOneWithoutCharactersInput;
+  realm: RealmCreateOneWithoutCharactersInput;
+  name: String;
+  class: CharacterClassEnum;
+  guild?: GuildMemberCreateOneWithoutCharacterInput;
+  applications?: GuildApplicationCreateManyWithoutCharacterInput;
+}
+
+export interface UserCreateOneWithoutCharactersInput {
+  create?: UserCreateWithoutCharactersInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface UserCreateWithoutCharactersInput {
+  displayName: String;
+  email: String;
+  password: String;
+  confirmed?: Boolean;
+  avatar?: String;
+}
+
+export interface RealmCreateOneWithoutCharactersInput {
+  create?: RealmCreateWithoutCharactersInput;
+  connect?: RealmWhereUniqueInput;
+}
+
+export interface RealmCreateWithoutCharactersInput {
+  name: String;
+  type?: RealmType;
+  population?: RealmPopulation;
+  guilds?: GuildCreateManyWithoutRealmInput;
+}
+
+export interface GuildCreateManyWithoutRealmInput {
+  create?: GuildCreateWithoutRealmInput[] | GuildCreateWithoutRealmInput;
+  connect?: GuildWhereUniqueInput[] | GuildWhereUniqueInput;
+}
+
+export interface GuildCreateWithoutRealmInput {
+  name: String;
+  avatar?: String;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberCreateManyWithoutGuildInput;
+  posts?: GuildPostCreateManyWithoutGuildInput;
+  events?: GuildEventCreateManyWithoutGuildInput;
+  applications?: GuildApplicationCreateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormCreateOneWithoutGuildInput;
+}
+
+export interface GuildMemberCreateManyWithoutGuildInput {
+  create?:
+    | GuildMemberCreateWithoutGuildInput[]
+    | GuildMemberCreateWithoutGuildInput;
+  connect?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+}
+
+export interface GuildMemberCreateWithoutGuildInput {
+  character: CharacterCreateOneWithoutGuildInput;
+  guildRole: GuildRole;
+  role: Role;
+  dkp?: Float;
+  events?: GuildEventCreateManyWithoutRosterInput;
+}
+
+export interface CharacterCreateOneWithoutGuildInput {
+  create?: CharacterCreateWithoutGuildInput;
+  connect?: CharacterWhereUniqueInput;
+}
+
+export interface CharacterCreateWithoutGuildInput {
+  user: UserCreateOneWithoutCharactersInput;
+  realm: RealmCreateOneWithoutCharactersInput;
+  name: String;
+  class: CharacterClassEnum;
+  applications?: GuildApplicationCreateManyWithoutCharacterInput;
+}
+
+export interface GuildApplicationCreateManyWithoutCharacterInput {
+  create?:
+    | GuildApplicationCreateWithoutCharacterInput[]
+    | GuildApplicationCreateWithoutCharacterInput;
+  connect?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+}
+
+export interface GuildApplicationCreateWithoutCharacterInput {
+  guild: GuildCreateOneWithoutApplicationsInput;
+  answers?: GuildApplicationFormQuestionAnswerCreateManyWithoutApplicationInput;
+  status: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildCreateOneWithoutApplicationsInput {
+  create?: GuildCreateWithoutApplicationsInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildCreateWithoutApplicationsInput {
+  name: String;
+  avatar?: String;
+  realm: RealmCreateOneWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberCreateManyWithoutGuildInput;
+  posts?: GuildPostCreateManyWithoutGuildInput;
+  events?: GuildEventCreateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormCreateOneWithoutGuildInput;
+}
+
+export interface RealmCreateOneWithoutGuildsInput {
+  create?: RealmCreateWithoutGuildsInput;
+  connect?: RealmWhereUniqueInput;
+}
+
+export interface RealmCreateWithoutGuildsInput {
+  name: String;
+  type?: RealmType;
+  population?: RealmPopulation;
+  characters?: CharacterCreateManyWithoutRealmInput;
+}
+
+export interface CharacterCreateManyWithoutRealmInput {
+  create?:
+    | CharacterCreateWithoutRealmInput[]
+    | CharacterCreateWithoutRealmInput;
+  connect?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+}
+
+export interface CharacterCreateWithoutRealmInput {
+  user: UserCreateOneWithoutCharactersInput;
+  name: String;
+  class: CharacterClassEnum;
+  guild?: GuildMemberCreateOneWithoutCharacterInput;
+  applications?: GuildApplicationCreateManyWithoutCharacterInput;
+}
+
+export interface GuildMemberCreateOneWithoutCharacterInput {
+  create?: GuildMemberCreateWithoutCharacterInput;
+  connect?: GuildMemberWhereUniqueInput;
+}
+
+export interface GuildMemberCreateWithoutCharacterInput {
+  guild: GuildCreateOneWithoutRosterInput;
+  guildRole: GuildRole;
+  role: Role;
+  dkp?: Float;
+  events?: GuildEventCreateManyWithoutRosterInput;
+}
+
+export interface GuildCreateOneWithoutRosterInput {
+  create?: GuildCreateWithoutRosterInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildCreateWithoutRosterInput {
+  name: String;
+  avatar?: String;
+  realm: RealmCreateOneWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  posts?: GuildPostCreateManyWithoutGuildInput;
+  events?: GuildEventCreateManyWithoutGuildInput;
+  applications?: GuildApplicationCreateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormCreateOneWithoutGuildInput;
+}
+
+export interface GuildPostCreateManyWithoutGuildInput {
+  create?:
+    | GuildPostCreateWithoutGuildInput[]
+    | GuildPostCreateWithoutGuildInput;
+  connect?: GuildPostWhereUniqueInput[] | GuildPostWhereUniqueInput;
+}
+
+export interface GuildPostCreateWithoutGuildInput {
+  title: String;
+  body: String;
+}
+
+export interface GuildEventCreateManyWithoutGuildInput {
+  create?:
+    | GuildEventCreateWithoutGuildInput[]
+    | GuildEventCreateWithoutGuildInput;
+  connect?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+}
+
+export interface GuildEventCreateWithoutGuildInput {
+  title: String;
+  startingAt: DateTimeInput;
+  instance: InstanceCreateOneInput;
+  roster?: GuildMemberCreateManyWithoutEventsInput;
+}
+
+export interface InstanceCreateOneInput {
+  create?: InstanceCreateInput;
+  connect?: InstanceWhereUniqueInput;
+}
+
+export interface InstanceCreateInput {
+  name: String;
+  Abbreviation?: String;
+  image?: String;
+  wiki?: String;
+  suggestedLevel?: String;
+  playersCap?: Float;
+  location?: String;
+}
+
+export interface GuildMemberCreateManyWithoutEventsInput {
+  create?:
+    | GuildMemberCreateWithoutEventsInput[]
+    | GuildMemberCreateWithoutEventsInput;
+  connect?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+}
+
+export interface GuildMemberCreateWithoutEventsInput {
+  character: CharacterCreateOneWithoutGuildInput;
+  guild: GuildCreateOneWithoutRosterInput;
+  guildRole: GuildRole;
+  role: Role;
+  dkp?: Float;
+}
+
+export interface GuildApplicationCreateManyWithoutGuildInput {
+  create?:
+    | GuildApplicationCreateWithoutGuildInput[]
+    | GuildApplicationCreateWithoutGuildInput;
+  connect?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+}
+
+export interface GuildApplicationCreateWithoutGuildInput {
+  character: CharacterCreateOneWithoutApplicationsInput;
+  answers?: GuildApplicationFormQuestionAnswerCreateManyWithoutApplicationInput;
+  status: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface CharacterCreateOneWithoutApplicationsInput {
+  create?: CharacterCreateWithoutApplicationsInput;
+  connect?: CharacterWhereUniqueInput;
+}
+
+export interface CharacterCreateWithoutApplicationsInput {
+  user: UserCreateOneWithoutCharactersInput;
+  realm: RealmCreateOneWithoutCharactersInput;
+  name: String;
+  class: CharacterClassEnum;
+  guild?: GuildMemberCreateOneWithoutCharacterInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerCreateManyWithoutApplicationInput {
+  create?:
+    | GuildApplicationFormQuestionAnswerCreateWithoutApplicationInput[]
+    | GuildApplicationFormQuestionAnswerCreateWithoutApplicationInput;
+  connect?:
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput[]
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerCreateWithoutApplicationInput {
+  question: GuildApplicationFormQuestionCreateOneInput;
+  answer: String;
+}
+
+export interface GuildApplicationFormQuestionCreateOneInput {
+  create?: GuildApplicationFormQuestionCreateInput;
+  connect?: GuildApplicationFormQuestionWhereUniqueInput;
+}
+
+export interface GuildApplicationFormQuestionCreateInput {
+  guildApplicationForm: GuildApplicationFormCreateOneWithoutQuestionsInput;
+  question: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormCreateOneWithoutQuestionsInput {
+  create?: GuildApplicationFormCreateWithoutQuestionsInput;
+  connect?: GuildApplicationFormWhereUniqueInput;
+}
+
+export interface GuildApplicationFormCreateWithoutQuestionsInput {
+  lastUpdatedAt: DateTimeInput;
+  guild: GuildCreateOneWithoutApplicationFormInput;
+}
+
+export interface GuildCreateOneWithoutApplicationFormInput {
+  create?: GuildCreateWithoutApplicationFormInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildCreateWithoutApplicationFormInput {
+  name: String;
+  avatar?: String;
+  realm: RealmCreateOneWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberCreateManyWithoutGuildInput;
+  posts?: GuildPostCreateManyWithoutGuildInput;
+  events?: GuildEventCreateManyWithoutGuildInput;
+  applications?: GuildApplicationCreateManyWithoutGuildInput;
+}
+
+export interface GuildApplicationFormCreateOneWithoutGuildInput {
+  create?: GuildApplicationFormCreateWithoutGuildInput;
+  connect?: GuildApplicationFormWhereUniqueInput;
+}
+
+export interface GuildApplicationFormCreateWithoutGuildInput {
+  lastUpdatedAt: DateTimeInput;
+  questions?: GuildApplicationFormQuestionCreateManyWithoutGuildApplicationFormInput;
+}
+
+export interface GuildApplicationFormQuestionCreateManyWithoutGuildApplicationFormInput {
+  create?:
+    | GuildApplicationFormQuestionCreateWithoutGuildApplicationFormInput[]
+    | GuildApplicationFormQuestionCreateWithoutGuildApplicationFormInput;
+  connect?:
+    | GuildApplicationFormQuestionWhereUniqueInput[]
+    | GuildApplicationFormQuestionWhereUniqueInput;
+}
+
+export interface GuildApplicationFormQuestionCreateWithoutGuildApplicationFormInput {
+  question: String;
+  sequence?: Float;
+}
+
+export interface GuildEventCreateManyWithoutRosterInput {
+  create?:
+    | GuildEventCreateWithoutRosterInput[]
+    | GuildEventCreateWithoutRosterInput;
+  connect?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+}
+
+export interface GuildEventCreateWithoutRosterInput {
+  title: String;
+  startingAt: DateTimeInput;
+  instance: InstanceCreateOneInput;
+  guild: GuildCreateOneWithoutEventsInput;
+}
+
+export interface GuildCreateOneWithoutEventsInput {
+  create?: GuildCreateWithoutEventsInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildCreateWithoutEventsInput {
+  name: String;
+  avatar?: String;
+  realm: RealmCreateOneWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberCreateManyWithoutGuildInput;
+  posts?: GuildPostCreateManyWithoutGuildInput;
+  applications?: GuildApplicationCreateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormCreateOneWithoutGuildInput;
+}
+
+export interface CharacterUpdateInput {
+  user?: UserUpdateOneRequiredWithoutCharactersInput;
+  realm?: RealmUpdateOneRequiredWithoutCharactersInput;
+  name?: String;
+  class?: CharacterClassEnum;
+  guild?: GuildMemberUpdateOneWithoutCharacterInput;
+  applications?: GuildApplicationUpdateManyWithoutCharacterInput;
+}
+
+export interface UserUpdateOneRequiredWithoutCharactersInput {
+  create?: UserCreateWithoutCharactersInput;
+  update?: UserUpdateWithoutCharactersDataInput;
+  upsert?: UserUpsertWithoutCharactersInput;
+  connect?: UserWhereUniqueInput;
+}
+
+export interface UserUpdateWithoutCharactersDataInput {
+  displayName?: String;
+  email?: String;
+  password?: String;
+  confirmed?: Boolean;
+  avatar?: String;
+}
+
+export interface UserUpsertWithoutCharactersInput {
+  update: UserUpdateWithoutCharactersDataInput;
+  create: UserCreateWithoutCharactersInput;
+}
+
+export interface RealmUpdateOneRequiredWithoutCharactersInput {
+  create?: RealmCreateWithoutCharactersInput;
+  update?: RealmUpdateWithoutCharactersDataInput;
+  upsert?: RealmUpsertWithoutCharactersInput;
+  connect?: RealmWhereUniqueInput;
+}
+
+export interface RealmUpdateWithoutCharactersDataInput {
+  name?: String;
+  type?: RealmType;
+  population?: RealmPopulation;
+  guilds?: GuildUpdateManyWithoutRealmInput;
+}
+
+export interface GuildUpdateManyWithoutRealmInput {
+  create?: GuildCreateWithoutRealmInput[] | GuildCreateWithoutRealmInput;
+  delete?: GuildWhereUniqueInput[] | GuildWhereUniqueInput;
+  connect?: GuildWhereUniqueInput[] | GuildWhereUniqueInput;
+  set?: GuildWhereUniqueInput[] | GuildWhereUniqueInput;
+  disconnect?: GuildWhereUniqueInput[] | GuildWhereUniqueInput;
+  update?:
+    | GuildUpdateWithWhereUniqueWithoutRealmInput[]
+    | GuildUpdateWithWhereUniqueWithoutRealmInput;
+  upsert?:
+    | GuildUpsertWithWhereUniqueWithoutRealmInput[]
+    | GuildUpsertWithWhereUniqueWithoutRealmInput;
+  deleteMany?: GuildScalarWhereInput[] | GuildScalarWhereInput;
+  updateMany?:
+    | GuildUpdateManyWithWhereNestedInput[]
+    | GuildUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildUpdateWithWhereUniqueWithoutRealmInput {
+  where: GuildWhereUniqueInput;
+  data: GuildUpdateWithoutRealmDataInput;
+}
+
+export interface GuildUpdateWithoutRealmDataInput {
+  name?: String;
+  avatar?: String;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberUpdateManyWithoutGuildInput;
+  posts?: GuildPostUpdateManyWithoutGuildInput;
+  events?: GuildEventUpdateManyWithoutGuildInput;
+  applications?: GuildApplicationUpdateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormUpdateOneWithoutGuildInput;
+}
+
+export interface GuildMemberUpdateManyWithoutGuildInput {
+  create?:
+    | GuildMemberCreateWithoutGuildInput[]
+    | GuildMemberCreateWithoutGuildInput;
+  delete?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  connect?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  set?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  disconnect?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  update?:
+    | GuildMemberUpdateWithWhereUniqueWithoutGuildInput[]
+    | GuildMemberUpdateWithWhereUniqueWithoutGuildInput;
+  upsert?:
+    | GuildMemberUpsertWithWhereUniqueWithoutGuildInput[]
+    | GuildMemberUpsertWithWhereUniqueWithoutGuildInput;
+  deleteMany?: GuildMemberScalarWhereInput[] | GuildMemberScalarWhereInput;
+  updateMany?:
+    | GuildMemberUpdateManyWithWhereNestedInput[]
+    | GuildMemberUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildMemberUpdateWithWhereUniqueWithoutGuildInput {
+  where: GuildMemberWhereUniqueInput;
+  data: GuildMemberUpdateWithoutGuildDataInput;
+}
+
+export interface GuildMemberUpdateWithoutGuildDataInput {
+  character?: CharacterUpdateOneRequiredWithoutGuildInput;
+  guildRole?: GuildRole;
+  role?: Role;
+  dkp?: Float;
+  events?: GuildEventUpdateManyWithoutRosterInput;
+}
+
+export interface CharacterUpdateOneRequiredWithoutGuildInput {
+  create?: CharacterCreateWithoutGuildInput;
+  update?: CharacterUpdateWithoutGuildDataInput;
+  upsert?: CharacterUpsertWithoutGuildInput;
+  connect?: CharacterWhereUniqueInput;
+}
+
+export interface CharacterUpdateWithoutGuildDataInput {
+  user?: UserUpdateOneRequiredWithoutCharactersInput;
+  realm?: RealmUpdateOneRequiredWithoutCharactersInput;
+  name?: String;
+  class?: CharacterClassEnum;
+  applications?: GuildApplicationUpdateManyWithoutCharacterInput;
+}
+
+export interface GuildApplicationUpdateManyWithoutCharacterInput {
+  create?:
+    | GuildApplicationCreateWithoutCharacterInput[]
+    | GuildApplicationCreateWithoutCharacterInput;
+  delete?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+  connect?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+  set?: GuildApplicationWhereUniqueInput[] | GuildApplicationWhereUniqueInput;
+  disconnect?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+  update?:
+    | GuildApplicationUpdateWithWhereUniqueWithoutCharacterInput[]
+    | GuildApplicationUpdateWithWhereUniqueWithoutCharacterInput;
+  upsert?:
+    | GuildApplicationUpsertWithWhereUniqueWithoutCharacterInput[]
+    | GuildApplicationUpsertWithWhereUniqueWithoutCharacterInput;
+  deleteMany?:
+    | GuildApplicationScalarWhereInput[]
+    | GuildApplicationScalarWhereInput;
+  updateMany?:
+    | GuildApplicationUpdateManyWithWhereNestedInput[]
+    | GuildApplicationUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildApplicationUpdateWithWhereUniqueWithoutCharacterInput {
+  where: GuildApplicationWhereUniqueInput;
+  data: GuildApplicationUpdateWithoutCharacterDataInput;
+}
+
+export interface GuildApplicationUpdateWithoutCharacterDataInput {
+  guild?: GuildUpdateOneRequiredWithoutApplicationsInput;
+  answers?: GuildApplicationFormQuestionAnswerUpdateManyWithoutApplicationInput;
+  status?: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildUpdateOneRequiredWithoutApplicationsInput {
+  create?: GuildCreateWithoutApplicationsInput;
+  update?: GuildUpdateWithoutApplicationsDataInput;
+  upsert?: GuildUpsertWithoutApplicationsInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildUpdateWithoutApplicationsDataInput {
+  name?: String;
+  avatar?: String;
+  realm?: RealmUpdateOneRequiredWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberUpdateManyWithoutGuildInput;
+  posts?: GuildPostUpdateManyWithoutGuildInput;
+  events?: GuildEventUpdateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormUpdateOneWithoutGuildInput;
+}
+
+export interface RealmUpdateOneRequiredWithoutGuildsInput {
+  create?: RealmCreateWithoutGuildsInput;
+  update?: RealmUpdateWithoutGuildsDataInput;
+  upsert?: RealmUpsertWithoutGuildsInput;
+  connect?: RealmWhereUniqueInput;
+}
+
+export interface RealmUpdateWithoutGuildsDataInput {
+  name?: String;
+  type?: RealmType;
+  population?: RealmPopulation;
+  characters?: CharacterUpdateManyWithoutRealmInput;
+}
+
+export interface CharacterUpdateManyWithoutRealmInput {
+  create?:
+    | CharacterCreateWithoutRealmInput[]
+    | CharacterCreateWithoutRealmInput;
+  delete?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  connect?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  set?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  disconnect?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  update?:
+    | CharacterUpdateWithWhereUniqueWithoutRealmInput[]
+    | CharacterUpdateWithWhereUniqueWithoutRealmInput;
+  upsert?:
+    | CharacterUpsertWithWhereUniqueWithoutRealmInput[]
+    | CharacterUpsertWithWhereUniqueWithoutRealmInput;
+  deleteMany?: CharacterScalarWhereInput[] | CharacterScalarWhereInput;
+  updateMany?:
+    | CharacterUpdateManyWithWhereNestedInput[]
+    | CharacterUpdateManyWithWhereNestedInput;
+}
+
+export interface CharacterUpdateWithWhereUniqueWithoutRealmInput {
+  where: CharacterWhereUniqueInput;
+  data: CharacterUpdateWithoutRealmDataInput;
+}
+
+export interface CharacterUpdateWithoutRealmDataInput {
+  user?: UserUpdateOneRequiredWithoutCharactersInput;
+  name?: String;
+  class?: CharacterClassEnum;
+  guild?: GuildMemberUpdateOneWithoutCharacterInput;
+  applications?: GuildApplicationUpdateManyWithoutCharacterInput;
+}
+
+export interface GuildMemberUpdateOneWithoutCharacterInput {
+  create?: GuildMemberCreateWithoutCharacterInput;
+  update?: GuildMemberUpdateWithoutCharacterDataInput;
+  upsert?: GuildMemberUpsertWithoutCharacterInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: GuildMemberWhereUniqueInput;
+}
+
+export interface GuildMemberUpdateWithoutCharacterDataInput {
+  guild?: GuildUpdateOneRequiredWithoutRosterInput;
+  guildRole?: GuildRole;
+  role?: Role;
+  dkp?: Float;
+  events?: GuildEventUpdateManyWithoutRosterInput;
+}
+
+export interface GuildUpdateOneRequiredWithoutRosterInput {
+  create?: GuildCreateWithoutRosterInput;
+  update?: GuildUpdateWithoutRosterDataInput;
+  upsert?: GuildUpsertWithoutRosterInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildUpdateWithoutRosterDataInput {
+  name?: String;
+  avatar?: String;
+  realm?: RealmUpdateOneRequiredWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  posts?: GuildPostUpdateManyWithoutGuildInput;
+  events?: GuildEventUpdateManyWithoutGuildInput;
+  applications?: GuildApplicationUpdateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormUpdateOneWithoutGuildInput;
+}
+
+export interface GuildPostUpdateManyWithoutGuildInput {
+  create?:
+    | GuildPostCreateWithoutGuildInput[]
+    | GuildPostCreateWithoutGuildInput;
+  delete?: GuildPostWhereUniqueInput[] | GuildPostWhereUniqueInput;
+  connect?: GuildPostWhereUniqueInput[] | GuildPostWhereUniqueInput;
+  set?: GuildPostWhereUniqueInput[] | GuildPostWhereUniqueInput;
+  disconnect?: GuildPostWhereUniqueInput[] | GuildPostWhereUniqueInput;
+  update?:
+    | GuildPostUpdateWithWhereUniqueWithoutGuildInput[]
+    | GuildPostUpdateWithWhereUniqueWithoutGuildInput;
+  upsert?:
+    | GuildPostUpsertWithWhereUniqueWithoutGuildInput[]
+    | GuildPostUpsertWithWhereUniqueWithoutGuildInput;
+  deleteMany?: GuildPostScalarWhereInput[] | GuildPostScalarWhereInput;
+  updateMany?:
+    | GuildPostUpdateManyWithWhereNestedInput[]
+    | GuildPostUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildPostUpdateWithWhereUniqueWithoutGuildInput {
+  where: GuildPostWhereUniqueInput;
+  data: GuildPostUpdateWithoutGuildDataInput;
+}
+
+export interface GuildPostUpdateWithoutGuildDataInput {
+  title?: String;
+  body?: String;
+}
+
+export interface GuildPostUpsertWithWhereUniqueWithoutGuildInput {
+  where: GuildPostWhereUniqueInput;
+  update: GuildPostUpdateWithoutGuildDataInput;
+  create: GuildPostCreateWithoutGuildInput;
+}
+
+export interface GuildPostScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  body?: String;
+  body_not?: String;
+  body_in?: String[] | String;
+  body_not_in?: String[] | String;
+  body_lt?: String;
+  body_lte?: String;
+  body_gt?: String;
+  body_gte?: String;
+  body_contains?: String;
+  body_not_contains?: String;
+  body_starts_with?: String;
+  body_not_starts_with?: String;
+  body_ends_with?: String;
+  body_not_ends_with?: String;
+  AND?: GuildPostScalarWhereInput[] | GuildPostScalarWhereInput;
+  OR?: GuildPostScalarWhereInput[] | GuildPostScalarWhereInput;
+  NOT?: GuildPostScalarWhereInput[] | GuildPostScalarWhereInput;
+}
+
+export interface GuildPostUpdateManyWithWhereNestedInput {
+  where: GuildPostScalarWhereInput;
+  data: GuildPostUpdateManyDataInput;
+}
+
+export interface GuildPostUpdateManyDataInput {
+  title?: String;
+  body?: String;
+}
+
+export interface GuildEventUpdateManyWithoutGuildInput {
+  create?:
+    | GuildEventCreateWithoutGuildInput[]
+    | GuildEventCreateWithoutGuildInput;
+  delete?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  connect?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  set?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  disconnect?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  update?:
+    | GuildEventUpdateWithWhereUniqueWithoutGuildInput[]
+    | GuildEventUpdateWithWhereUniqueWithoutGuildInput;
+  upsert?:
+    | GuildEventUpsertWithWhereUniqueWithoutGuildInput[]
+    | GuildEventUpsertWithWhereUniqueWithoutGuildInput;
+  deleteMany?: GuildEventScalarWhereInput[] | GuildEventScalarWhereInput;
+  updateMany?:
+    | GuildEventUpdateManyWithWhereNestedInput[]
+    | GuildEventUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildEventUpdateWithWhereUniqueWithoutGuildInput {
+  where: GuildEventWhereUniqueInput;
+  data: GuildEventUpdateWithoutGuildDataInput;
+}
+
+export interface GuildEventUpdateWithoutGuildDataInput {
+  title?: String;
+  startingAt?: DateTimeInput;
+  instance?: InstanceUpdateOneRequiredInput;
+  roster?: GuildMemberUpdateManyWithoutEventsInput;
+}
+
+export interface InstanceUpdateOneRequiredInput {
+  create?: InstanceCreateInput;
+  update?: InstanceUpdateDataInput;
+  upsert?: InstanceUpsertNestedInput;
+  connect?: InstanceWhereUniqueInput;
+}
+
+export interface InstanceUpdateDataInput {
+  name?: String;
+  Abbreviation?: String;
+  image?: String;
+  wiki?: String;
+  suggestedLevel?: String;
+  playersCap?: Float;
+  location?: String;
+}
+
+export interface InstanceUpsertNestedInput {
+  update: InstanceUpdateDataInput;
+  create: InstanceCreateInput;
+}
+
+export interface GuildMemberUpdateManyWithoutEventsInput {
+  create?:
+    | GuildMemberCreateWithoutEventsInput[]
+    | GuildMemberCreateWithoutEventsInput;
+  delete?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  connect?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  set?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  disconnect?: GuildMemberWhereUniqueInput[] | GuildMemberWhereUniqueInput;
+  update?:
+    | GuildMemberUpdateWithWhereUniqueWithoutEventsInput[]
+    | GuildMemberUpdateWithWhereUniqueWithoutEventsInput;
+  upsert?:
+    | GuildMemberUpsertWithWhereUniqueWithoutEventsInput[]
+    | GuildMemberUpsertWithWhereUniqueWithoutEventsInput;
+  deleteMany?: GuildMemberScalarWhereInput[] | GuildMemberScalarWhereInput;
+  updateMany?:
+    | GuildMemberUpdateManyWithWhereNestedInput[]
+    | GuildMemberUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildMemberUpdateWithWhereUniqueWithoutEventsInput {
+  where: GuildMemberWhereUniqueInput;
+  data: GuildMemberUpdateWithoutEventsDataInput;
+}
+
+export interface GuildMemberUpdateWithoutEventsDataInput {
+  character?: CharacterUpdateOneRequiredWithoutGuildInput;
+  guild?: GuildUpdateOneRequiredWithoutRosterInput;
+  guildRole?: GuildRole;
+  role?: Role;
+  dkp?: Float;
+}
+
+export interface GuildMemberUpsertWithWhereUniqueWithoutEventsInput {
+  where: GuildMemberWhereUniqueInput;
+  update: GuildMemberUpdateWithoutEventsDataInput;
+  create: GuildMemberCreateWithoutEventsInput;
+}
+
+export interface GuildMemberScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  guildRole?: GuildRole;
+  guildRole_not?: GuildRole;
+  guildRole_in?: GuildRole[] | GuildRole;
+  guildRole_not_in?: GuildRole[] | GuildRole;
+  role?: Role;
+  role_not?: Role;
+  role_in?: Role[] | Role;
+  role_not_in?: Role[] | Role;
+  dkp?: Float;
+  dkp_not?: Float;
+  dkp_in?: Float[] | Float;
+  dkp_not_in?: Float[] | Float;
+  dkp_lt?: Float;
+  dkp_lte?: Float;
+  dkp_gt?: Float;
+  dkp_gte?: Float;
+  AND?: GuildMemberScalarWhereInput[] | GuildMemberScalarWhereInput;
+  OR?: GuildMemberScalarWhereInput[] | GuildMemberScalarWhereInput;
+  NOT?: GuildMemberScalarWhereInput[] | GuildMemberScalarWhereInput;
+}
+
+export interface GuildMemberUpdateManyWithWhereNestedInput {
+  where: GuildMemberScalarWhereInput;
+  data: GuildMemberUpdateManyDataInput;
+}
+
+export interface GuildMemberUpdateManyDataInput {
+  guildRole?: GuildRole;
+  role?: Role;
+  dkp?: Float;
+}
+
+export interface GuildEventUpsertWithWhereUniqueWithoutGuildInput {
+  where: GuildEventWhereUniqueInput;
+  update: GuildEventUpdateWithoutGuildDataInput;
+  create: GuildEventCreateWithoutGuildInput;
+}
+
+export interface GuildEventScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  startingAt?: DateTimeInput;
+  startingAt_not?: DateTimeInput;
+  startingAt_in?: DateTimeInput[] | DateTimeInput;
+  startingAt_not_in?: DateTimeInput[] | DateTimeInput;
+  startingAt_lt?: DateTimeInput;
+  startingAt_lte?: DateTimeInput;
+  startingAt_gt?: DateTimeInput;
+  startingAt_gte?: DateTimeInput;
+  AND?: GuildEventScalarWhereInput[] | GuildEventScalarWhereInput;
+  OR?: GuildEventScalarWhereInput[] | GuildEventScalarWhereInput;
+  NOT?: GuildEventScalarWhereInput[] | GuildEventScalarWhereInput;
+}
+
+export interface GuildEventUpdateManyWithWhereNestedInput {
+  where: GuildEventScalarWhereInput;
+  data: GuildEventUpdateManyDataInput;
+}
+
+export interface GuildEventUpdateManyDataInput {
+  title?: String;
+  startingAt?: DateTimeInput;
+}
+
+export interface GuildApplicationUpdateManyWithoutGuildInput {
+  create?:
+    | GuildApplicationCreateWithoutGuildInput[]
+    | GuildApplicationCreateWithoutGuildInput;
+  delete?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+  connect?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+  set?: GuildApplicationWhereUniqueInput[] | GuildApplicationWhereUniqueInput;
+  disconnect?:
+    | GuildApplicationWhereUniqueInput[]
+    | GuildApplicationWhereUniqueInput;
+  update?:
+    | GuildApplicationUpdateWithWhereUniqueWithoutGuildInput[]
+    | GuildApplicationUpdateWithWhereUniqueWithoutGuildInput;
+  upsert?:
+    | GuildApplicationUpsertWithWhereUniqueWithoutGuildInput[]
+    | GuildApplicationUpsertWithWhereUniqueWithoutGuildInput;
+  deleteMany?:
+    | GuildApplicationScalarWhereInput[]
+    | GuildApplicationScalarWhereInput;
+  updateMany?:
+    | GuildApplicationUpdateManyWithWhereNestedInput[]
+    | GuildApplicationUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildApplicationUpdateWithWhereUniqueWithoutGuildInput {
+  where: GuildApplicationWhereUniqueInput;
+  data: GuildApplicationUpdateWithoutGuildDataInput;
+}
+
+export interface GuildApplicationUpdateWithoutGuildDataInput {
+  character?: CharacterUpdateOneRequiredWithoutApplicationsInput;
+  answers?: GuildApplicationFormQuestionAnswerUpdateManyWithoutApplicationInput;
+  status?: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface CharacterUpdateOneRequiredWithoutApplicationsInput {
+  create?: CharacterCreateWithoutApplicationsInput;
+  update?: CharacterUpdateWithoutApplicationsDataInput;
+  upsert?: CharacterUpsertWithoutApplicationsInput;
+  connect?: CharacterWhereUniqueInput;
+}
+
+export interface CharacterUpdateWithoutApplicationsDataInput {
+  user?: UserUpdateOneRequiredWithoutCharactersInput;
+  realm?: RealmUpdateOneRequiredWithoutCharactersInput;
+  name?: String;
+  class?: CharacterClassEnum;
+  guild?: GuildMemberUpdateOneWithoutCharacterInput;
+}
+
+export interface CharacterUpsertWithoutApplicationsInput {
+  update: CharacterUpdateWithoutApplicationsDataInput;
+  create: CharacterCreateWithoutApplicationsInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpdateManyWithoutApplicationInput {
+  create?:
+    | GuildApplicationFormQuestionAnswerCreateWithoutApplicationInput[]
+    | GuildApplicationFormQuestionAnswerCreateWithoutApplicationInput;
+  delete?:
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput[]
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput;
+  connect?:
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput[]
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput;
+  set?:
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput[]
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput;
+  disconnect?:
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput[]
+    | GuildApplicationFormQuestionAnswerWhereUniqueInput;
+  update?:
+    | GuildApplicationFormQuestionAnswerUpdateWithWhereUniqueWithoutApplicationInput[]
+    | GuildApplicationFormQuestionAnswerUpdateWithWhereUniqueWithoutApplicationInput;
+  upsert?:
+    | GuildApplicationFormQuestionAnswerUpsertWithWhereUniqueWithoutApplicationInput[]
+    | GuildApplicationFormQuestionAnswerUpsertWithWhereUniqueWithoutApplicationInput;
+  deleteMany?:
+    | GuildApplicationFormQuestionAnswerScalarWhereInput[]
+    | GuildApplicationFormQuestionAnswerScalarWhereInput;
+  updateMany?:
+    | GuildApplicationFormQuestionAnswerUpdateManyWithWhereNestedInput[]
+    | GuildApplicationFormQuestionAnswerUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpdateWithWhereUniqueWithoutApplicationInput {
+  where: GuildApplicationFormQuestionAnswerWhereUniqueInput;
+  data: GuildApplicationFormQuestionAnswerUpdateWithoutApplicationDataInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpdateWithoutApplicationDataInput {
+  question?: GuildApplicationFormQuestionUpdateOneRequiredInput;
+  answer?: String;
+}
+
+export interface GuildApplicationFormQuestionUpdateOneRequiredInput {
+  create?: GuildApplicationFormQuestionCreateInput;
+  update?: GuildApplicationFormQuestionUpdateDataInput;
+  upsert?: GuildApplicationFormQuestionUpsertNestedInput;
+  connect?: GuildApplicationFormQuestionWhereUniqueInput;
+}
+
+export interface GuildApplicationFormQuestionUpdateDataInput {
+  guildApplicationForm?: GuildApplicationFormUpdateOneRequiredWithoutQuestionsInput;
+  question?: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormUpdateOneRequiredWithoutQuestionsInput {
+  create?: GuildApplicationFormCreateWithoutQuestionsInput;
+  update?: GuildApplicationFormUpdateWithoutQuestionsDataInput;
+  upsert?: GuildApplicationFormUpsertWithoutQuestionsInput;
+  connect?: GuildApplicationFormWhereUniqueInput;
+}
+
+export interface GuildApplicationFormUpdateWithoutQuestionsDataInput {
+  lastUpdatedAt?: DateTimeInput;
+  guild?: GuildUpdateOneRequiredWithoutApplicationFormInput;
+}
+
+export interface GuildUpdateOneRequiredWithoutApplicationFormInput {
+  create?: GuildCreateWithoutApplicationFormInput;
+  update?: GuildUpdateWithoutApplicationFormDataInput;
+  upsert?: GuildUpsertWithoutApplicationFormInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildUpdateWithoutApplicationFormDataInput {
+  name?: String;
+  avatar?: String;
+  realm?: RealmUpdateOneRequiredWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberUpdateManyWithoutGuildInput;
+  posts?: GuildPostUpdateManyWithoutGuildInput;
+  events?: GuildEventUpdateManyWithoutGuildInput;
+  applications?: GuildApplicationUpdateManyWithoutGuildInput;
+}
+
+export interface GuildUpsertWithoutApplicationFormInput {
+  update: GuildUpdateWithoutApplicationFormDataInput;
+  create: GuildCreateWithoutApplicationFormInput;
+}
+
+export interface GuildApplicationFormUpsertWithoutQuestionsInput {
+  update: GuildApplicationFormUpdateWithoutQuestionsDataInput;
+  create: GuildApplicationFormCreateWithoutQuestionsInput;
+}
+
+export interface GuildApplicationFormQuestionUpsertNestedInput {
+  update: GuildApplicationFormQuestionUpdateDataInput;
+  create: GuildApplicationFormQuestionCreateInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpsertWithWhereUniqueWithoutApplicationInput {
+  where: GuildApplicationFormQuestionAnswerWhereUniqueInput;
+  update: GuildApplicationFormQuestionAnswerUpdateWithoutApplicationDataInput;
+  create: GuildApplicationFormQuestionAnswerCreateWithoutApplicationInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  answer?: String;
+  answer_not?: String;
+  answer_in?: String[] | String;
+  answer_not_in?: String[] | String;
+  answer_lt?: String;
+  answer_lte?: String;
+  answer_gt?: String;
+  answer_gte?: String;
+  answer_contains?: String;
+  answer_not_contains?: String;
+  answer_starts_with?: String;
+  answer_not_starts_with?: String;
+  answer_ends_with?: String;
+  answer_not_ends_with?: String;
+  AND?:
+    | GuildApplicationFormQuestionAnswerScalarWhereInput[]
+    | GuildApplicationFormQuestionAnswerScalarWhereInput;
+  OR?:
+    | GuildApplicationFormQuestionAnswerScalarWhereInput[]
+    | GuildApplicationFormQuestionAnswerScalarWhereInput;
+  NOT?:
+    | GuildApplicationFormQuestionAnswerScalarWhereInput[]
+    | GuildApplicationFormQuestionAnswerScalarWhereInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpdateManyWithWhereNestedInput {
+  where: GuildApplicationFormQuestionAnswerScalarWhereInput;
+  data: GuildApplicationFormQuestionAnswerUpdateManyDataInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpdateManyDataInput {
+  answer?: String;
+}
+
+export interface GuildApplicationUpsertWithWhereUniqueWithoutGuildInput {
+  where: GuildApplicationWhereUniqueInput;
+  update: GuildApplicationUpdateWithoutGuildDataInput;
+  create: GuildApplicationCreateWithoutGuildInput;
+}
+
+export interface GuildApplicationScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  status?: GuildApplicationStatus;
+  status_not?: GuildApplicationStatus;
+  status_in?: GuildApplicationStatus[] | GuildApplicationStatus;
+  status_not_in?: GuildApplicationStatus[] | GuildApplicationStatus;
+  comment?: String;
+  comment_not?: String;
+  comment_in?: String[] | String;
+  comment_not_in?: String[] | String;
+  comment_lt?: String;
+  comment_lte?: String;
+  comment_gt?: String;
+  comment_gte?: String;
+  comment_contains?: String;
+  comment_not_contains?: String;
+  comment_starts_with?: String;
+  comment_not_starts_with?: String;
+  comment_ends_with?: String;
+  comment_not_ends_with?: String;
+  AND?: GuildApplicationScalarWhereInput[] | GuildApplicationScalarWhereInput;
+  OR?: GuildApplicationScalarWhereInput[] | GuildApplicationScalarWhereInput;
+  NOT?: GuildApplicationScalarWhereInput[] | GuildApplicationScalarWhereInput;
+}
+
+export interface GuildApplicationUpdateManyWithWhereNestedInput {
+  where: GuildApplicationScalarWhereInput;
+  data: GuildApplicationUpdateManyDataInput;
+}
+
+export interface GuildApplicationUpdateManyDataInput {
+  status?: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationFormUpdateOneWithoutGuildInput {
+  create?: GuildApplicationFormCreateWithoutGuildInput;
+  update?: GuildApplicationFormUpdateWithoutGuildDataInput;
+  upsert?: GuildApplicationFormUpsertWithoutGuildInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: GuildApplicationFormWhereUniqueInput;
+}
+
+export interface GuildApplicationFormUpdateWithoutGuildDataInput {
+  lastUpdatedAt?: DateTimeInput;
+  questions?: GuildApplicationFormQuestionUpdateManyWithoutGuildApplicationFormInput;
+}
+
+export interface GuildApplicationFormQuestionUpdateManyWithoutGuildApplicationFormInput {
+  create?:
+    | GuildApplicationFormQuestionCreateWithoutGuildApplicationFormInput[]
+    | GuildApplicationFormQuestionCreateWithoutGuildApplicationFormInput;
+  delete?:
+    | GuildApplicationFormQuestionWhereUniqueInput[]
+    | GuildApplicationFormQuestionWhereUniqueInput;
+  connect?:
+    | GuildApplicationFormQuestionWhereUniqueInput[]
+    | GuildApplicationFormQuestionWhereUniqueInput;
+  set?:
+    | GuildApplicationFormQuestionWhereUniqueInput[]
+    | GuildApplicationFormQuestionWhereUniqueInput;
+  disconnect?:
+    | GuildApplicationFormQuestionWhereUniqueInput[]
+    | GuildApplicationFormQuestionWhereUniqueInput;
+  update?:
+    | GuildApplicationFormQuestionUpdateWithWhereUniqueWithoutGuildApplicationFormInput[]
+    | GuildApplicationFormQuestionUpdateWithWhereUniqueWithoutGuildApplicationFormInput;
+  upsert?:
+    | GuildApplicationFormQuestionUpsertWithWhereUniqueWithoutGuildApplicationFormInput[]
+    | GuildApplicationFormQuestionUpsertWithWhereUniqueWithoutGuildApplicationFormInput;
+  deleteMany?:
+    | GuildApplicationFormQuestionScalarWhereInput[]
+    | GuildApplicationFormQuestionScalarWhereInput;
+  updateMany?:
+    | GuildApplicationFormQuestionUpdateManyWithWhereNestedInput[]
+    | GuildApplicationFormQuestionUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildApplicationFormQuestionUpdateWithWhereUniqueWithoutGuildApplicationFormInput {
+  where: GuildApplicationFormQuestionWhereUniqueInput;
+  data: GuildApplicationFormQuestionUpdateWithoutGuildApplicationFormDataInput;
+}
+
+export interface GuildApplicationFormQuestionUpdateWithoutGuildApplicationFormDataInput {
+  question?: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormQuestionUpsertWithWhereUniqueWithoutGuildApplicationFormInput {
+  where: GuildApplicationFormQuestionWhereUniqueInput;
+  update: GuildApplicationFormQuestionUpdateWithoutGuildApplicationFormDataInput;
+  create: GuildApplicationFormQuestionCreateWithoutGuildApplicationFormInput;
+}
+
+export interface GuildApplicationFormQuestionScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  question?: String;
+  question_not?: String;
+  question_in?: String[] | String;
+  question_not_in?: String[] | String;
+  question_lt?: String;
+  question_lte?: String;
+  question_gt?: String;
+  question_gte?: String;
+  question_contains?: String;
+  question_not_contains?: String;
+  question_starts_with?: String;
+  question_not_starts_with?: String;
+  question_ends_with?: String;
+  question_not_ends_with?: String;
+  sequence?: Float;
+  sequence_not?: Float;
+  sequence_in?: Float[] | Float;
+  sequence_not_in?: Float[] | Float;
+  sequence_lt?: Float;
+  sequence_lte?: Float;
+  sequence_gt?: Float;
+  sequence_gte?: Float;
+  AND?:
+    | GuildApplicationFormQuestionScalarWhereInput[]
+    | GuildApplicationFormQuestionScalarWhereInput;
+  OR?:
+    | GuildApplicationFormQuestionScalarWhereInput[]
+    | GuildApplicationFormQuestionScalarWhereInput;
+  NOT?:
+    | GuildApplicationFormQuestionScalarWhereInput[]
+    | GuildApplicationFormQuestionScalarWhereInput;
+}
+
+export interface GuildApplicationFormQuestionUpdateManyWithWhereNestedInput {
+  where: GuildApplicationFormQuestionScalarWhereInput;
+  data: GuildApplicationFormQuestionUpdateManyDataInput;
+}
+
+export interface GuildApplicationFormQuestionUpdateManyDataInput {
+  question?: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormUpsertWithoutGuildInput {
+  update: GuildApplicationFormUpdateWithoutGuildDataInput;
+  create: GuildApplicationFormCreateWithoutGuildInput;
+}
+
+export interface GuildUpsertWithoutRosterInput {
+  update: GuildUpdateWithoutRosterDataInput;
+  create: GuildCreateWithoutRosterInput;
+}
+
+export interface GuildEventUpdateManyWithoutRosterInput {
+  create?:
+    | GuildEventCreateWithoutRosterInput[]
+    | GuildEventCreateWithoutRosterInput;
+  delete?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  connect?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  set?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  disconnect?: GuildEventWhereUniqueInput[] | GuildEventWhereUniqueInput;
+  update?:
+    | GuildEventUpdateWithWhereUniqueWithoutRosterInput[]
+    | GuildEventUpdateWithWhereUniqueWithoutRosterInput;
+  upsert?:
+    | GuildEventUpsertWithWhereUniqueWithoutRosterInput[]
+    | GuildEventUpsertWithWhereUniqueWithoutRosterInput;
+  deleteMany?: GuildEventScalarWhereInput[] | GuildEventScalarWhereInput;
+  updateMany?:
+    | GuildEventUpdateManyWithWhereNestedInput[]
+    | GuildEventUpdateManyWithWhereNestedInput;
+}
+
+export interface GuildEventUpdateWithWhereUniqueWithoutRosterInput {
+  where: GuildEventWhereUniqueInput;
+  data: GuildEventUpdateWithoutRosterDataInput;
+}
+
+export interface GuildEventUpdateWithoutRosterDataInput {
+  title?: String;
+  startingAt?: DateTimeInput;
+  instance?: InstanceUpdateOneRequiredInput;
+  guild?: GuildUpdateOneRequiredWithoutEventsInput;
+}
+
+export interface GuildUpdateOneRequiredWithoutEventsInput {
+  create?: GuildCreateWithoutEventsInput;
+  update?: GuildUpdateWithoutEventsDataInput;
+  upsert?: GuildUpsertWithoutEventsInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildUpdateWithoutEventsDataInput {
+  name?: String;
+  avatar?: String;
+  realm?: RealmUpdateOneRequiredWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberUpdateManyWithoutGuildInput;
+  posts?: GuildPostUpdateManyWithoutGuildInput;
+  applications?: GuildApplicationUpdateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormUpdateOneWithoutGuildInput;
+}
+
+export interface GuildUpsertWithoutEventsInput {
+  update: GuildUpdateWithoutEventsDataInput;
+  create: GuildCreateWithoutEventsInput;
+}
+
+export interface GuildEventUpsertWithWhereUniqueWithoutRosterInput {
+  where: GuildEventWhereUniqueInput;
+  update: GuildEventUpdateWithoutRosterDataInput;
+  create: GuildEventCreateWithoutRosterInput;
+}
+
+export interface GuildMemberUpsertWithoutCharacterInput {
+  update: GuildMemberUpdateWithoutCharacterDataInput;
+  create: GuildMemberCreateWithoutCharacterInput;
+}
+
+export interface CharacterUpsertWithWhereUniqueWithoutRealmInput {
+  where: CharacterWhereUniqueInput;
+  update: CharacterUpdateWithoutRealmDataInput;
+  create: CharacterCreateWithoutRealmInput;
+}
+
+export interface CharacterScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  class?: CharacterClassEnum;
+  class_not?: CharacterClassEnum;
+  class_in?: CharacterClassEnum[] | CharacterClassEnum;
+  class_not_in?: CharacterClassEnum[] | CharacterClassEnum;
+  AND?: CharacterScalarWhereInput[] | CharacterScalarWhereInput;
+  OR?: CharacterScalarWhereInput[] | CharacterScalarWhereInput;
+  NOT?: CharacterScalarWhereInput[] | CharacterScalarWhereInput;
+}
+
+export interface CharacterUpdateManyWithWhereNestedInput {
+  where: CharacterScalarWhereInput;
+  data: CharacterUpdateManyDataInput;
+}
+
+export interface CharacterUpdateManyDataInput {
+  name?: String;
+  class?: CharacterClassEnum;
+}
+
+export interface RealmUpsertWithoutGuildsInput {
+  update: RealmUpdateWithoutGuildsDataInput;
+  create: RealmCreateWithoutGuildsInput;
+}
+
+export interface GuildUpsertWithoutApplicationsInput {
+  update: GuildUpdateWithoutApplicationsDataInput;
+  create: GuildCreateWithoutApplicationsInput;
+}
+
+export interface GuildApplicationUpsertWithWhereUniqueWithoutCharacterInput {
+  where: GuildApplicationWhereUniqueInput;
+  update: GuildApplicationUpdateWithoutCharacterDataInput;
+  create: GuildApplicationCreateWithoutCharacterInput;
+}
+
+export interface CharacterUpsertWithoutGuildInput {
+  update: CharacterUpdateWithoutGuildDataInput;
+  create: CharacterCreateWithoutGuildInput;
+}
+
+export interface GuildMemberUpsertWithWhereUniqueWithoutGuildInput {
+  where: GuildMemberWhereUniqueInput;
+  update: GuildMemberUpdateWithoutGuildDataInput;
+  create: GuildMemberCreateWithoutGuildInput;
+}
+
+export interface GuildUpsertWithWhereUniqueWithoutRealmInput {
+  where: GuildWhereUniqueInput;
+  update: GuildUpdateWithoutRealmDataInput;
+  create: GuildCreateWithoutRealmInput;
+}
+
+export interface GuildScalarWhereInput {
+  id?: UUID;
+  id_not?: UUID;
+  id_in?: UUID[] | UUID;
+  id_not_in?: UUID[] | UUID;
+  id_lt?: UUID;
+  id_lte?: UUID;
+  id_gt?: UUID;
+  id_gte?: UUID;
+  id_contains?: UUID;
+  id_not_contains?: UUID;
+  id_starts_with?: UUID;
+  id_not_starts_with?: UUID;
+  id_ends_with?: UUID;
+  id_not_ends_with?: UUID;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  avatar?: String;
+  avatar_not?: String;
+  avatar_in?: String[] | String;
+  avatar_not_in?: String[] | String;
+  avatar_lt?: String;
+  avatar_lte?: String;
+  avatar_gt?: String;
+  avatar_gte?: String;
+  avatar_contains?: String;
+  avatar_not_contains?: String;
+  avatar_starts_with?: String;
+  avatar_not_starts_with?: String;
+  avatar_ends_with?: String;
+  avatar_not_ends_with?: String;
+  lootingSystem?: GuildLootingSystem;
+  lootingSystem_not?: GuildLootingSystem;
+  lootingSystem_in?: GuildLootingSystem[] | GuildLootingSystem;
+  lootingSystem_not_in?: GuildLootingSystem[] | GuildLootingSystem;
+  AND?: GuildScalarWhereInput[] | GuildScalarWhereInput;
+  OR?: GuildScalarWhereInput[] | GuildScalarWhereInput;
+  NOT?: GuildScalarWhereInput[] | GuildScalarWhereInput;
+}
+
+export interface GuildUpdateManyWithWhereNestedInput {
+  where: GuildScalarWhereInput;
+  data: GuildUpdateManyDataInput;
+}
+
+export interface GuildUpdateManyDataInput {
+  name?: String;
+  avatar?: String;
+  lootingSystem?: GuildLootingSystem;
+}
+
+export interface RealmUpsertWithoutCharactersInput {
+  update: RealmUpdateWithoutCharactersDataInput;
+  create: RealmCreateWithoutCharactersInput;
+}
+
+export interface CharacterUpdateManyMutationInput {
+  name?: String;
+  class?: CharacterClassEnum;
+}
+
+export interface GuildCreateInput {
+  name: String;
+  avatar?: String;
+  realm: RealmCreateOneWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberCreateManyWithoutGuildInput;
+  posts?: GuildPostCreateManyWithoutGuildInput;
+  events?: GuildEventCreateManyWithoutGuildInput;
+  applications?: GuildApplicationCreateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormCreateOneWithoutGuildInput;
+}
+
+export interface GuildUpdateInput {
+  name?: String;
+  avatar?: String;
+  realm?: RealmUpdateOneRequiredWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberUpdateManyWithoutGuildInput;
+  posts?: GuildPostUpdateManyWithoutGuildInput;
+  events?: GuildEventUpdateManyWithoutGuildInput;
+  applications?: GuildApplicationUpdateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormUpdateOneWithoutGuildInput;
+}
+
+export interface GuildUpdateManyMutationInput {
+  name?: String;
+  avatar?: String;
+  lootingSystem?: GuildLootingSystem;
+}
+
+export interface GuildApplicationCreateInput {
+  guild: GuildCreateOneWithoutApplicationsInput;
+  character: CharacterCreateOneWithoutApplicationsInput;
+  answers?: GuildApplicationFormQuestionAnswerCreateManyWithoutApplicationInput;
+  status: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationUpdateInput {
+  guild?: GuildUpdateOneRequiredWithoutApplicationsInput;
+  character?: CharacterUpdateOneRequiredWithoutApplicationsInput;
+  answers?: GuildApplicationFormQuestionAnswerUpdateManyWithoutApplicationInput;
+  status?: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationUpdateManyMutationInput {
+  status?: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationFormCreateInput {
+  lastUpdatedAt: DateTimeInput;
+  guild: GuildCreateOneWithoutApplicationFormInput;
+  questions?: GuildApplicationFormQuestionCreateManyWithoutGuildApplicationFormInput;
+}
+
+export interface GuildApplicationFormUpdateInput {
+  lastUpdatedAt?: DateTimeInput;
+  guild?: GuildUpdateOneRequiredWithoutApplicationFormInput;
+  questions?: GuildApplicationFormQuestionUpdateManyWithoutGuildApplicationFormInput;
+}
+
+export interface GuildApplicationFormUpdateManyMutationInput {
+  lastUpdatedAt?: DateTimeInput;
+}
+
+export interface GuildApplicationFormQuestionUpdateInput {
+  guildApplicationForm?: GuildApplicationFormUpdateOneRequiredWithoutQuestionsInput;
+  question?: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormQuestionUpdateManyMutationInput {
+  question?: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormQuestionAnswerCreateInput {
+  application: GuildApplicationCreateOneWithoutAnswersInput;
+  question: GuildApplicationFormQuestionCreateOneInput;
+  answer: String;
+}
+
+export interface GuildApplicationCreateOneWithoutAnswersInput {
+  create?: GuildApplicationCreateWithoutAnswersInput;
+  connect?: GuildApplicationWhereUniqueInput;
+}
+
+export interface GuildApplicationCreateWithoutAnswersInput {
+  guild: GuildCreateOneWithoutApplicationsInput;
+  character: CharacterCreateOneWithoutApplicationsInput;
+  status: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpdateInput {
+  application?: GuildApplicationUpdateOneRequiredWithoutAnswersInput;
+  question?: GuildApplicationFormQuestionUpdateOneRequiredInput;
+  answer?: String;
+}
+
+export interface GuildApplicationUpdateOneRequiredWithoutAnswersInput {
+  create?: GuildApplicationCreateWithoutAnswersInput;
+  update?: GuildApplicationUpdateWithoutAnswersDataInput;
+  upsert?: GuildApplicationUpsertWithoutAnswersInput;
+  connect?: GuildApplicationWhereUniqueInput;
+}
+
+export interface GuildApplicationUpdateWithoutAnswersDataInput {
+  guild?: GuildUpdateOneRequiredWithoutApplicationsInput;
+  character?: CharacterUpdateOneRequiredWithoutApplicationsInput;
+  status?: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationUpsertWithoutAnswersInput {
+  update: GuildApplicationUpdateWithoutAnswersDataInput;
+  create: GuildApplicationCreateWithoutAnswersInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerUpdateManyMutationInput {
+  answer?: String;
+}
+
+export interface GuildEventCreateInput {
+  title: String;
+  startingAt: DateTimeInput;
+  instance: InstanceCreateOneInput;
+  guild: GuildCreateOneWithoutEventsInput;
+  roster?: GuildMemberCreateManyWithoutEventsInput;
+}
+
+export interface GuildEventUpdateInput {
+  title?: String;
+  startingAt?: DateTimeInput;
+  instance?: InstanceUpdateOneRequiredInput;
+  guild?: GuildUpdateOneRequiredWithoutEventsInput;
+  roster?: GuildMemberUpdateManyWithoutEventsInput;
+}
+
+export interface GuildEventUpdateManyMutationInput {
+  title?: String;
+  startingAt?: DateTimeInput;
+}
+
+export interface GuildMemberCreateInput {
+  character: CharacterCreateOneWithoutGuildInput;
+  guild: GuildCreateOneWithoutRosterInput;
+  guildRole: GuildRole;
+  role: Role;
+  dkp?: Float;
+  events?: GuildEventCreateManyWithoutRosterInput;
+}
+
+export interface GuildMemberUpdateInput {
+  character?: CharacterUpdateOneRequiredWithoutGuildInput;
+  guild?: GuildUpdateOneRequiredWithoutRosterInput;
+  guildRole?: GuildRole;
+  role?: Role;
+  dkp?: Float;
+  events?: GuildEventUpdateManyWithoutRosterInput;
+}
+
+export interface GuildMemberUpdateManyMutationInput {
+  guildRole?: GuildRole;
+  role?: Role;
+  dkp?: Float;
+}
+
+export interface GuildPostCreateInput {
+  guild: GuildCreateOneWithoutPostsInput;
+  title: String;
+  body: String;
+}
+
+export interface GuildCreateOneWithoutPostsInput {
+  create?: GuildCreateWithoutPostsInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildCreateWithoutPostsInput {
+  name: String;
+  avatar?: String;
+  realm: RealmCreateOneWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberCreateManyWithoutGuildInput;
+  events?: GuildEventCreateManyWithoutGuildInput;
+  applications?: GuildApplicationCreateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormCreateOneWithoutGuildInput;
+}
+
+export interface GuildPostUpdateInput {
+  guild?: GuildUpdateOneRequiredWithoutPostsInput;
+  title?: String;
+  body?: String;
+}
+
+export interface GuildUpdateOneRequiredWithoutPostsInput {
+  create?: GuildCreateWithoutPostsInput;
+  update?: GuildUpdateWithoutPostsDataInput;
+  upsert?: GuildUpsertWithoutPostsInput;
+  connect?: GuildWhereUniqueInput;
+}
+
+export interface GuildUpdateWithoutPostsDataInput {
+  name?: String;
+  avatar?: String;
+  realm?: RealmUpdateOneRequiredWithoutGuildsInput;
+  lootingSystem?: GuildLootingSystem;
+  roster?: GuildMemberUpdateManyWithoutGuildInput;
+  events?: GuildEventUpdateManyWithoutGuildInput;
+  applications?: GuildApplicationUpdateManyWithoutGuildInput;
+  applicationForm?: GuildApplicationFormUpdateOneWithoutGuildInput;
+}
+
+export interface GuildUpsertWithoutPostsInput {
+  update: GuildUpdateWithoutPostsDataInput;
+  create: GuildCreateWithoutPostsInput;
+}
+
+export interface GuildPostUpdateManyMutationInput {
+  title?: String;
+  body?: String;
+}
+
+export interface InstanceUpdateInput {
+  name?: String;
+  Abbreviation?: String;
+  image?: String;
+  wiki?: String;
+  suggestedLevel?: String;
+  playersCap?: Float;
+  location?: String;
+}
+
+export interface InstanceUpdateManyMutationInput {
+  name?: String;
+  Abbreviation?: String;
+  image?: String;
+  wiki?: String;
+  suggestedLevel?: String;
+  playersCap?: Float;
+  location?: String;
+}
+
+export interface RealmCreateInput {
+  name: String;
+  type?: RealmType;
+  population?: RealmPopulation;
+  characters?: CharacterCreateManyWithoutRealmInput;
+  guilds?: GuildCreateManyWithoutRealmInput;
+}
+
+export interface RealmUpdateInput {
+  name?: String;
+  type?: RealmType;
+  population?: RealmPopulation;
+  characters?: CharacterUpdateManyWithoutRealmInput;
+  guilds?: GuildUpdateManyWithoutRealmInput;
+}
+
+export interface RealmUpdateManyMutationInput {
+  name?: String;
+  type?: RealmType;
+  population?: RealmPopulation;
+}
+
+export interface UserCreateInput {
+  displayName: String;
+  email: String;
+  password: String;
+  confirmed?: Boolean;
+  avatar?: String;
+  characters?: CharacterCreateManyWithoutUserInput;
+}
+
+export interface CharacterCreateManyWithoutUserInput {
+  create?: CharacterCreateWithoutUserInput[] | CharacterCreateWithoutUserInput;
+  connect?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+}
+
+export interface CharacterCreateWithoutUserInput {
+  realm: RealmCreateOneWithoutCharactersInput;
+  name: String;
+  class: CharacterClassEnum;
+  guild?: GuildMemberCreateOneWithoutCharacterInput;
+  applications?: GuildApplicationCreateManyWithoutCharacterInput;
+}
+
+export interface UserUpdateInput {
+  displayName?: String;
+  email?: String;
+  password?: String;
+  confirmed?: Boolean;
+  avatar?: String;
+  characters?: CharacterUpdateManyWithoutUserInput;
+}
+
+export interface CharacterUpdateManyWithoutUserInput {
+  create?: CharacterCreateWithoutUserInput[] | CharacterCreateWithoutUserInput;
+  delete?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  connect?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  set?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  disconnect?: CharacterWhereUniqueInput[] | CharacterWhereUniqueInput;
+  update?:
+    | CharacterUpdateWithWhereUniqueWithoutUserInput[]
+    | CharacterUpdateWithWhereUniqueWithoutUserInput;
+  upsert?:
+    | CharacterUpsertWithWhereUniqueWithoutUserInput[]
+    | CharacterUpsertWithWhereUniqueWithoutUserInput;
+  deleteMany?: CharacterScalarWhereInput[] | CharacterScalarWhereInput;
+  updateMany?:
+    | CharacterUpdateManyWithWhereNestedInput[]
+    | CharacterUpdateManyWithWhereNestedInput;
+}
+
+export interface CharacterUpdateWithWhereUniqueWithoutUserInput {
+  where: CharacterWhereUniqueInput;
+  data: CharacterUpdateWithoutUserDataInput;
+}
+
+export interface CharacterUpdateWithoutUserDataInput {
+  realm?: RealmUpdateOneRequiredWithoutCharactersInput;
+  name?: String;
+  class?: CharacterClassEnum;
+  guild?: GuildMemberUpdateOneWithoutCharacterInput;
+  applications?: GuildApplicationUpdateManyWithoutCharacterInput;
+}
+
+export interface CharacterUpsertWithWhereUniqueWithoutUserInput {
+  where: CharacterWhereUniqueInput;
+  update: CharacterUpdateWithoutUserDataInput;
+  create: CharacterCreateWithoutUserInput;
+}
+
+export interface UserUpdateManyMutationInput {
+  displayName?: String;
+  email?: String;
+  password?: String;
+  confirmed?: Boolean;
+  avatar?: String;
+}
+
+export interface CharacterSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: CharacterWhereInput;
+  AND?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
+  OR?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
+  NOT?: CharacterSubscriptionWhereInput[] | CharacterSubscriptionWhereInput;
+}
+
+export interface GuildSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildWhereInput;
+  AND?: GuildSubscriptionWhereInput[] | GuildSubscriptionWhereInput;
+  OR?: GuildSubscriptionWhereInput[] | GuildSubscriptionWhereInput;
+  NOT?: GuildSubscriptionWhereInput[] | GuildSubscriptionWhereInput;
+}
+
+export interface GuildApplicationSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildApplicationWhereInput;
+  AND?:
+    | GuildApplicationSubscriptionWhereInput[]
+    | GuildApplicationSubscriptionWhereInput;
+  OR?:
+    | GuildApplicationSubscriptionWhereInput[]
+    | GuildApplicationSubscriptionWhereInput;
+  NOT?:
+    | GuildApplicationSubscriptionWhereInput[]
+    | GuildApplicationSubscriptionWhereInput;
+}
+
+export interface GuildApplicationFormSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildApplicationFormWhereInput;
+  AND?:
+    | GuildApplicationFormSubscriptionWhereInput[]
+    | GuildApplicationFormSubscriptionWhereInput;
+  OR?:
+    | GuildApplicationFormSubscriptionWhereInput[]
+    | GuildApplicationFormSubscriptionWhereInput;
+  NOT?:
+    | GuildApplicationFormSubscriptionWhereInput[]
+    | GuildApplicationFormSubscriptionWhereInput;
+}
+
+export interface GuildApplicationFormQuestionSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildApplicationFormQuestionWhereInput;
+  AND?:
+    | GuildApplicationFormQuestionSubscriptionWhereInput[]
+    | GuildApplicationFormQuestionSubscriptionWhereInput;
+  OR?:
+    | GuildApplicationFormQuestionSubscriptionWhereInput[]
+    | GuildApplicationFormQuestionSubscriptionWhereInput;
+  NOT?:
+    | GuildApplicationFormQuestionSubscriptionWhereInput[]
+    | GuildApplicationFormQuestionSubscriptionWhereInput;
+}
+
+export interface GuildApplicationFormQuestionAnswerSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildApplicationFormQuestionAnswerWhereInput;
+  AND?:
+    | GuildApplicationFormQuestionAnswerSubscriptionWhereInput[]
+    | GuildApplicationFormQuestionAnswerSubscriptionWhereInput;
+  OR?:
+    | GuildApplicationFormQuestionAnswerSubscriptionWhereInput[]
+    | GuildApplicationFormQuestionAnswerSubscriptionWhereInput;
+  NOT?:
+    | GuildApplicationFormQuestionAnswerSubscriptionWhereInput[]
+    | GuildApplicationFormQuestionAnswerSubscriptionWhereInput;
+}
+
+export interface GuildEventSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildEventWhereInput;
+  AND?: GuildEventSubscriptionWhereInput[] | GuildEventSubscriptionWhereInput;
+  OR?: GuildEventSubscriptionWhereInput[] | GuildEventSubscriptionWhereInput;
+  NOT?: GuildEventSubscriptionWhereInput[] | GuildEventSubscriptionWhereInput;
+}
+
+export interface GuildMemberSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildMemberWhereInput;
+  AND?: GuildMemberSubscriptionWhereInput[] | GuildMemberSubscriptionWhereInput;
+  OR?: GuildMemberSubscriptionWhereInput[] | GuildMemberSubscriptionWhereInput;
+  NOT?: GuildMemberSubscriptionWhereInput[] | GuildMemberSubscriptionWhereInput;
+}
+
+export interface GuildPostSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GuildPostWhereInput;
+  AND?: GuildPostSubscriptionWhereInput[] | GuildPostSubscriptionWhereInput;
+  OR?: GuildPostSubscriptionWhereInput[] | GuildPostSubscriptionWhereInput;
+  NOT?: GuildPostSubscriptionWhereInput[] | GuildPostSubscriptionWhereInput;
+}
+
+export interface InstanceSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: InstanceWhereInput;
+  AND?: InstanceSubscriptionWhereInput[] | InstanceSubscriptionWhereInput;
+  OR?: InstanceSubscriptionWhereInput[] | InstanceSubscriptionWhereInput;
+  NOT?: InstanceSubscriptionWhereInput[] | InstanceSubscriptionWhereInput;
+}
+
+export interface RealmSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: RealmWhereInput;
+  AND?: RealmSubscriptionWhereInput[] | RealmSubscriptionWhereInput;
+  OR?: RealmSubscriptionWhereInput[] | RealmSubscriptionWhereInput;
+  NOT?: RealmSubscriptionWhereInput[] | RealmSubscriptionWhereInput;
 }
 
 export interface UserSubscriptionWhereInput {
@@ -357,57 +3582,578 @@ export interface UserSubscriptionWhereInput {
   NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
 }
 
-export interface WorkspaceSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: WorkspaceWhereInput;
-  AND?: WorkspaceSubscriptionWhereInput[] | WorkspaceSubscriptionWhereInput;
-  OR?: WorkspaceSubscriptionWhereInput[] | WorkspaceSubscriptionWhereInput;
-  NOT?: WorkspaceSubscriptionWhereInput[] | WorkspaceSubscriptionWhereInput;
-}
-
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface User {
-  id: ID_Output;
+export interface Character {
+  id: UUID;
+  createdAt: DateTimeOutput;
   name: String;
+  class: CharacterClassEnum;
+}
+
+export interface CharacterPromise extends Promise<Character>, Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  user: <T = UserPromise>() => T;
+  realm: <T = RealmPromise>() => T;
+  name: () => Promise<String>;
+  class: () => Promise<CharacterClassEnum>;
+  guild: <T = GuildMemberPromise>() => T;
+  applications: <T = FragmentableArray<GuildApplication>>(args?: {
+    where?: GuildApplicationWhereInput;
+    orderBy?: GuildApplicationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface CharacterSubscription
+  extends Promise<AsyncIterator<Character>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  user: <T = UserSubscription>() => T;
+  realm: <T = RealmSubscription>() => T;
+  name: () => Promise<AsyncIterator<String>>;
+  class: () => Promise<AsyncIterator<CharacterClassEnum>>;
+  guild: <T = GuildMemberSubscription>() => T;
+  applications: <
+    T = Promise<AsyncIterator<GuildApplicationSubscription>>
+  >(args?: {
+    where?: GuildApplicationWhereInput;
+    orderBy?: GuildApplicationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface User {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  displayName: String;
+  email: String;
+  password: String;
+  confirmed: Boolean;
+  avatar?: String;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  displayName: () => Promise<String>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  confirmed: () => Promise<Boolean>;
+  avatar: () => Promise<String>;
+  characters: <T = FragmentableArray<Character>>(args?: {
+    where?: CharacterWhereInput;
+    orderBy?: CharacterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface UserSubscription
   extends Promise<AsyncIterator<User>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  displayName: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  confirmed: () => Promise<AsyncIterator<Boolean>>;
+  avatar: () => Promise<AsyncIterator<String>>;
+  characters: <T = Promise<AsyncIterator<CharacterSubscription>>>(args?: {
+    where?: CharacterWhereInput;
+    orderBy?: CharacterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface Realm {
+  id: UUID;
+  name: String;
+  type: RealmType;
+  population: RealmPopulation;
+}
+
+export interface RealmPromise extends Promise<Realm>, Fragmentable {
+  id: () => Promise<UUID>;
+  name: () => Promise<String>;
+  type: () => Promise<RealmType>;
+  population: () => Promise<RealmPopulation>;
+  characters: <T = FragmentableArray<Character>>(args?: {
+    where?: CharacterWhereInput;
+    orderBy?: CharacterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  guilds: <T = FragmentableArray<Guild>>(args?: {
+    where?: GuildWhereInput;
+    orderBy?: GuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface RealmSubscription
+  extends Promise<AsyncIterator<Realm>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
   name: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<RealmType>>;
+  population: () => Promise<AsyncIterator<RealmPopulation>>;
+  characters: <T = Promise<AsyncIterator<CharacterSubscription>>>(args?: {
+    where?: CharacterWhereInput;
+    orderBy?: CharacterOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  guilds: <T = Promise<AsyncIterator<GuildSubscription>>>(args?: {
+    where?: GuildWhereInput;
+    orderBy?: GuildOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
-export interface UserConnection {
+export interface Guild {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  name: String;
+  avatar?: String;
+  lootingSystem: GuildLootingSystem;
+}
+
+export interface GuildPromise extends Promise<Guild>, Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  name: () => Promise<String>;
+  avatar: () => Promise<String>;
+  realm: <T = RealmPromise>() => T;
+  lootingSystem: () => Promise<GuildLootingSystem>;
+  roster: <T = FragmentableArray<GuildMember>>(args?: {
+    where?: GuildMemberWhereInput;
+    orderBy?: GuildMemberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  posts: <T = FragmentableArray<GuildPost>>(args?: {
+    where?: GuildPostWhereInput;
+    orderBy?: GuildPostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  events: <T = FragmentableArray<GuildEvent>>(args?: {
+    where?: GuildEventWhereInput;
+    orderBy?: GuildEventOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  applications: <T = FragmentableArray<GuildApplication>>(args?: {
+    where?: GuildApplicationWhereInput;
+    orderBy?: GuildApplicationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  applicationForm: <T = GuildApplicationFormPromise>() => T;
+}
+
+export interface GuildSubscription
+  extends Promise<AsyncIterator<Guild>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  name: () => Promise<AsyncIterator<String>>;
+  avatar: () => Promise<AsyncIterator<String>>;
+  realm: <T = RealmSubscription>() => T;
+  lootingSystem: () => Promise<AsyncIterator<GuildLootingSystem>>;
+  roster: <T = Promise<AsyncIterator<GuildMemberSubscription>>>(args?: {
+    where?: GuildMemberWhereInput;
+    orderBy?: GuildMemberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  posts: <T = Promise<AsyncIterator<GuildPostSubscription>>>(args?: {
+    where?: GuildPostWhereInput;
+    orderBy?: GuildPostOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  events: <T = Promise<AsyncIterator<GuildEventSubscription>>>(args?: {
+    where?: GuildEventWhereInput;
+    orderBy?: GuildEventOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  applications: <
+    T = Promise<AsyncIterator<GuildApplicationSubscription>>
+  >(args?: {
+    where?: GuildApplicationWhereInput;
+    orderBy?: GuildApplicationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  applicationForm: <T = GuildApplicationFormSubscription>() => T;
+}
+
+export interface GuildMember {
+  id: UUID;
+  guildRole: GuildRole;
+  role: Role;
+  dkp?: Float;
+}
+
+export interface GuildMemberPromise extends Promise<GuildMember>, Fragmentable {
+  id: () => Promise<UUID>;
+  character: <T = CharacterPromise>() => T;
+  guild: <T = GuildPromise>() => T;
+  guildRole: () => Promise<GuildRole>;
+  role: () => Promise<Role>;
+  dkp: () => Promise<Float>;
+  events: <T = FragmentableArray<GuildEvent>>(args?: {
+    where?: GuildEventWhereInput;
+    orderBy?: GuildEventOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface GuildMemberSubscription
+  extends Promise<AsyncIterator<GuildMember>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  character: <T = CharacterSubscription>() => T;
+  guild: <T = GuildSubscription>() => T;
+  guildRole: () => Promise<AsyncIterator<GuildRole>>;
+  role: () => Promise<AsyncIterator<Role>>;
+  dkp: () => Promise<AsyncIterator<Float>>;
+  events: <T = Promise<AsyncIterator<GuildEventSubscription>>>(args?: {
+    where?: GuildEventWhereInput;
+    orderBy?: GuildEventOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface GuildEvent {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  title: String;
+  startingAt: DateTimeOutput;
+}
+
+export interface GuildEventPromise extends Promise<GuildEvent>, Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  startingAt: () => Promise<DateTimeOutput>;
+  instance: <T = InstancePromise>() => T;
+  guild: <T = GuildPromise>() => T;
+  roster: <T = FragmentableArray<GuildMember>>(args?: {
+    where?: GuildMemberWhereInput;
+    orderBy?: GuildMemberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface GuildEventSubscription
+  extends Promise<AsyncIterator<GuildEvent>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  startingAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  instance: <T = InstanceSubscription>() => T;
+  guild: <T = GuildSubscription>() => T;
+  roster: <T = Promise<AsyncIterator<GuildMemberSubscription>>>(args?: {
+    where?: GuildMemberWhereInput;
+    orderBy?: GuildMemberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface Instance {
+  id: UUID;
+  name: String;
+  Abbreviation?: String;
+  image?: String;
+  wiki?: String;
+  suggestedLevel?: String;
+  playersCap?: Float;
+  location?: String;
+}
+
+export interface InstancePromise extends Promise<Instance>, Fragmentable {
+  id: () => Promise<UUID>;
+  name: () => Promise<String>;
+  Abbreviation: () => Promise<String>;
+  image: () => Promise<String>;
+  wiki: () => Promise<String>;
+  suggestedLevel: () => Promise<String>;
+  playersCap: () => Promise<Float>;
+  location: () => Promise<String>;
+}
+
+export interface InstanceSubscription
+  extends Promise<AsyncIterator<Instance>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  name: () => Promise<AsyncIterator<String>>;
+  Abbreviation: () => Promise<AsyncIterator<String>>;
+  image: () => Promise<AsyncIterator<String>>;
+  wiki: () => Promise<AsyncIterator<String>>;
+  suggestedLevel: () => Promise<AsyncIterator<String>>;
+  playersCap: () => Promise<AsyncIterator<Float>>;
+  location: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GuildPost {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  title: String;
+  body: String;
+}
+
+export interface GuildPostPromise extends Promise<GuildPost>, Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  guild: <T = GuildPromise>() => T;
+  title: () => Promise<String>;
+  body: () => Promise<String>;
+}
+
+export interface GuildPostSubscription
+  extends Promise<AsyncIterator<GuildPost>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  guild: <T = GuildSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  body: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GuildApplication {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  status: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationPromise
+  extends Promise<GuildApplication>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  guild: <T = GuildPromise>() => T;
+  character: <T = CharacterPromise>() => T;
+  answers: <T = FragmentableArray<GuildApplicationFormQuestionAnswer>>(args?: {
+    where?: GuildApplicationFormQuestionAnswerWhereInput;
+    orderBy?: GuildApplicationFormQuestionAnswerOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  status: () => Promise<GuildApplicationStatus>;
+  comment: () => Promise<String>;
+}
+
+export interface GuildApplicationSubscription
+  extends Promise<AsyncIterator<GuildApplication>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  guild: <T = GuildSubscription>() => T;
+  character: <T = CharacterSubscription>() => T;
+  answers: <
+    T = Promise<AsyncIterator<GuildApplicationFormQuestionAnswerSubscription>>
+  >(args?: {
+    where?: GuildApplicationFormQuestionAnswerWhereInput;
+    orderBy?: GuildApplicationFormQuestionAnswerOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  status: () => Promise<AsyncIterator<GuildApplicationStatus>>;
+  comment: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GuildApplicationFormQuestionAnswer {
+  id: UUID;
+  answer: String;
+}
+
+export interface GuildApplicationFormQuestionAnswerPromise
+  extends Promise<GuildApplicationFormQuestionAnswer>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  application: <T = GuildApplicationPromise>() => T;
+  question: <T = GuildApplicationFormQuestionPromise>() => T;
+  answer: () => Promise<String>;
+}
+
+export interface GuildApplicationFormQuestionAnswerSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormQuestionAnswer>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  application: <T = GuildApplicationSubscription>() => T;
+  question: <T = GuildApplicationFormQuestionSubscription>() => T;
+  answer: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GuildApplicationFormQuestion {
+  id: UUID;
+  question: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormQuestionPromise
+  extends Promise<GuildApplicationFormQuestion>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  guildApplicationForm: <T = GuildApplicationFormPromise>() => T;
+  question: () => Promise<String>;
+  sequence: () => Promise<Float>;
+}
+
+export interface GuildApplicationFormQuestionSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormQuestion>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  guildApplicationForm: <T = GuildApplicationFormSubscription>() => T;
+  question: () => Promise<AsyncIterator<String>>;
+  sequence: () => Promise<AsyncIterator<Float>>;
+}
+
+export interface GuildApplicationForm {
+  id: UUID;
+  lastUpdatedAt: DateTimeOutput;
+}
+
+export interface GuildApplicationFormPromise
+  extends Promise<GuildApplicationForm>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  lastUpdatedAt: () => Promise<DateTimeOutput>;
+  guild: <T = GuildPromise>() => T;
+  questions: <T = FragmentableArray<GuildApplicationFormQuestion>>(args?: {
+    where?: GuildApplicationFormQuestionWhereInput;
+    orderBy?: GuildApplicationFormQuestionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface GuildApplicationFormSubscription
+  extends Promise<AsyncIterator<GuildApplicationForm>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  lastUpdatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  guild: <T = GuildSubscription>() => T;
+  questions: <
+    T = Promise<AsyncIterator<GuildApplicationFormQuestionSubscription>>
+  >(args?: {
+    where?: GuildApplicationFormQuestionWhereInput;
+    orderBy?: GuildApplicationFormQuestionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface CharacterConnection {
   pageInfo: PageInfo;
-  edges: UserEdge[];
+  edges: CharacterEdge[];
 }
 
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
+export interface CharacterConnectionPromise
+  extends Promise<CharacterConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  edges: <T = FragmentableArray<CharacterEdge>>() => T;
+  aggregate: <T = AggregateCharacterPromise>() => T;
 }
 
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
+export interface CharacterConnectionSubscription
+  extends Promise<AsyncIterator<CharacterConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CharacterEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCharacterSubscription>() => T;
 }
 
 export interface PageInfo {
@@ -431,6 +4177,628 @@ export interface PageInfoSubscription
   hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
   startCursor: () => Promise<AsyncIterator<String>>;
   endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CharacterEdge {
+  node: Character;
+  cursor: String;
+}
+
+export interface CharacterEdgePromise
+  extends Promise<CharacterEdge>,
+    Fragmentable {
+  node: <T = CharacterPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CharacterEdgeSubscription
+  extends Promise<AsyncIterator<CharacterEdge>>,
+    Fragmentable {
+  node: <T = CharacterSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateCharacter {
+  count: Int;
+}
+
+export interface AggregateCharacterPromise
+  extends Promise<AggregateCharacter>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCharacterSubscription
+  extends Promise<AsyncIterator<AggregateCharacter>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildConnection {
+  pageInfo: PageInfo;
+  edges: GuildEdge[];
+}
+
+export interface GuildConnectionPromise
+  extends Promise<GuildConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildEdge>>() => T;
+  aggregate: <T = AggregateGuildPromise>() => T;
+}
+
+export interface GuildConnectionSubscription
+  extends Promise<AsyncIterator<GuildConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GuildEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGuildSubscription>() => T;
+}
+
+export interface GuildEdge {
+  node: Guild;
+  cursor: String;
+}
+
+export interface GuildEdgePromise extends Promise<GuildEdge>, Fragmentable {
+  node: <T = GuildPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildEdgeSubscription
+  extends Promise<AsyncIterator<GuildEdge>>,
+    Fragmentable {
+  node: <T = GuildSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuild {
+  count: Int;
+}
+
+export interface AggregateGuildPromise
+  extends Promise<AggregateGuild>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildSubscription
+  extends Promise<AsyncIterator<AggregateGuild>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildApplicationConnection {
+  pageInfo: PageInfo;
+  edges: GuildApplicationEdge[];
+}
+
+export interface GuildApplicationConnectionPromise
+  extends Promise<GuildApplicationConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildApplicationEdge>>() => T;
+  aggregate: <T = AggregateGuildApplicationPromise>() => T;
+}
+
+export interface GuildApplicationConnectionSubscription
+  extends Promise<AsyncIterator<GuildApplicationConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GuildApplicationEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGuildApplicationSubscription>() => T;
+}
+
+export interface GuildApplicationEdge {
+  node: GuildApplication;
+  cursor: String;
+}
+
+export interface GuildApplicationEdgePromise
+  extends Promise<GuildApplicationEdge>,
+    Fragmentable {
+  node: <T = GuildApplicationPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildApplicationEdgeSubscription
+  extends Promise<AsyncIterator<GuildApplicationEdge>>,
+    Fragmentable {
+  node: <T = GuildApplicationSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuildApplication {
+  count: Int;
+}
+
+export interface AggregateGuildApplicationPromise
+  extends Promise<AggregateGuildApplication>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildApplicationSubscription
+  extends Promise<AsyncIterator<AggregateGuildApplication>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildApplicationFormConnection {
+  pageInfo: PageInfo;
+  edges: GuildApplicationFormEdge[];
+}
+
+export interface GuildApplicationFormConnectionPromise
+  extends Promise<GuildApplicationFormConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildApplicationFormEdge>>() => T;
+  aggregate: <T = AggregateGuildApplicationFormPromise>() => T;
+}
+
+export interface GuildApplicationFormConnectionSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<GuildApplicationFormEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateGuildApplicationFormSubscription>() => T;
+}
+
+export interface GuildApplicationFormEdge {
+  node: GuildApplicationForm;
+  cursor: String;
+}
+
+export interface GuildApplicationFormEdgePromise
+  extends Promise<GuildApplicationFormEdge>,
+    Fragmentable {
+  node: <T = GuildApplicationFormPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildApplicationFormEdgeSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormEdge>>,
+    Fragmentable {
+  node: <T = GuildApplicationFormSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuildApplicationForm {
+  count: Int;
+}
+
+export interface AggregateGuildApplicationFormPromise
+  extends Promise<AggregateGuildApplicationForm>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildApplicationFormSubscription
+  extends Promise<AsyncIterator<AggregateGuildApplicationForm>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildApplicationFormQuestionConnection {
+  pageInfo: PageInfo;
+  edges: GuildApplicationFormQuestionEdge[];
+}
+
+export interface GuildApplicationFormQuestionConnectionPromise
+  extends Promise<GuildApplicationFormQuestionConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildApplicationFormQuestionEdge>>() => T;
+  aggregate: <T = AggregateGuildApplicationFormQuestionPromise>() => T;
+}
+
+export interface GuildApplicationFormQuestionConnectionSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormQuestionConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<GuildApplicationFormQuestionEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateGuildApplicationFormQuestionSubscription>() => T;
+}
+
+export interface GuildApplicationFormQuestionEdge {
+  node: GuildApplicationFormQuestion;
+  cursor: String;
+}
+
+export interface GuildApplicationFormQuestionEdgePromise
+  extends Promise<GuildApplicationFormQuestionEdge>,
+    Fragmentable {
+  node: <T = GuildApplicationFormQuestionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildApplicationFormQuestionEdgeSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormQuestionEdge>>,
+    Fragmentable {
+  node: <T = GuildApplicationFormQuestionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuildApplicationFormQuestion {
+  count: Int;
+}
+
+export interface AggregateGuildApplicationFormQuestionPromise
+  extends Promise<AggregateGuildApplicationFormQuestion>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildApplicationFormQuestionSubscription
+  extends Promise<AsyncIterator<AggregateGuildApplicationFormQuestion>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildApplicationFormQuestionAnswerConnection {
+  pageInfo: PageInfo;
+  edges: GuildApplicationFormQuestionAnswerEdge[];
+}
+
+export interface GuildApplicationFormQuestionAnswerConnectionPromise
+  extends Promise<GuildApplicationFormQuestionAnswerConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildApplicationFormQuestionAnswerEdge>>() => T;
+  aggregate: <T = AggregateGuildApplicationFormQuestionAnswerPromise>() => T;
+}
+
+export interface GuildApplicationFormQuestionAnswerConnectionSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormQuestionAnswerConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<
+      AsyncIterator<GuildApplicationFormQuestionAnswerEdgeSubscription>
+    >
+  >() => T;
+  aggregate: <
+    T = AggregateGuildApplicationFormQuestionAnswerSubscription
+  >() => T;
+}
+
+export interface GuildApplicationFormQuestionAnswerEdge {
+  node: GuildApplicationFormQuestionAnswer;
+  cursor: String;
+}
+
+export interface GuildApplicationFormQuestionAnswerEdgePromise
+  extends Promise<GuildApplicationFormQuestionAnswerEdge>,
+    Fragmentable {
+  node: <T = GuildApplicationFormQuestionAnswerPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildApplicationFormQuestionAnswerEdgeSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormQuestionAnswerEdge>>,
+    Fragmentable {
+  node: <T = GuildApplicationFormQuestionAnswerSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuildApplicationFormQuestionAnswer {
+  count: Int;
+}
+
+export interface AggregateGuildApplicationFormQuestionAnswerPromise
+  extends Promise<AggregateGuildApplicationFormQuestionAnswer>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildApplicationFormQuestionAnswerSubscription
+  extends Promise<AsyncIterator<AggregateGuildApplicationFormQuestionAnswer>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildEventConnection {
+  pageInfo: PageInfo;
+  edges: GuildEventEdge[];
+}
+
+export interface GuildEventConnectionPromise
+  extends Promise<GuildEventConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildEventEdge>>() => T;
+  aggregate: <T = AggregateGuildEventPromise>() => T;
+}
+
+export interface GuildEventConnectionSubscription
+  extends Promise<AsyncIterator<GuildEventConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GuildEventEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGuildEventSubscription>() => T;
+}
+
+export interface GuildEventEdge {
+  node: GuildEvent;
+  cursor: String;
+}
+
+export interface GuildEventEdgePromise
+  extends Promise<GuildEventEdge>,
+    Fragmentable {
+  node: <T = GuildEventPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildEventEdgeSubscription
+  extends Promise<AsyncIterator<GuildEventEdge>>,
+    Fragmentable {
+  node: <T = GuildEventSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuildEvent {
+  count: Int;
+}
+
+export interface AggregateGuildEventPromise
+  extends Promise<AggregateGuildEvent>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildEventSubscription
+  extends Promise<AsyncIterator<AggregateGuildEvent>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildMemberConnection {
+  pageInfo: PageInfo;
+  edges: GuildMemberEdge[];
+}
+
+export interface GuildMemberConnectionPromise
+  extends Promise<GuildMemberConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildMemberEdge>>() => T;
+  aggregate: <T = AggregateGuildMemberPromise>() => T;
+}
+
+export interface GuildMemberConnectionSubscription
+  extends Promise<AsyncIterator<GuildMemberConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GuildMemberEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGuildMemberSubscription>() => T;
+}
+
+export interface GuildMemberEdge {
+  node: GuildMember;
+  cursor: String;
+}
+
+export interface GuildMemberEdgePromise
+  extends Promise<GuildMemberEdge>,
+    Fragmentable {
+  node: <T = GuildMemberPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildMemberEdgeSubscription
+  extends Promise<AsyncIterator<GuildMemberEdge>>,
+    Fragmentable {
+  node: <T = GuildMemberSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuildMember {
+  count: Int;
+}
+
+export interface AggregateGuildMemberPromise
+  extends Promise<AggregateGuildMember>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildMemberSubscription
+  extends Promise<AsyncIterator<AggregateGuildMember>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GuildPostConnection {
+  pageInfo: PageInfo;
+  edges: GuildPostEdge[];
+}
+
+export interface GuildPostConnectionPromise
+  extends Promise<GuildPostConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GuildPostEdge>>() => T;
+  aggregate: <T = AggregateGuildPostPromise>() => T;
+}
+
+export interface GuildPostConnectionSubscription
+  extends Promise<AsyncIterator<GuildPostConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GuildPostEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGuildPostSubscription>() => T;
+}
+
+export interface GuildPostEdge {
+  node: GuildPost;
+  cursor: String;
+}
+
+export interface GuildPostEdgePromise
+  extends Promise<GuildPostEdge>,
+    Fragmentable {
+  node: <T = GuildPostPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GuildPostEdgeSubscription
+  extends Promise<AsyncIterator<GuildPostEdge>>,
+    Fragmentable {
+  node: <T = GuildPostSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGuildPost {
+  count: Int;
+}
+
+export interface AggregateGuildPostPromise
+  extends Promise<AggregateGuildPost>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGuildPostSubscription
+  extends Promise<AsyncIterator<AggregateGuildPost>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface InstanceConnection {
+  pageInfo: PageInfo;
+  edges: InstanceEdge[];
+}
+
+export interface InstanceConnectionPromise
+  extends Promise<InstanceConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<InstanceEdge>>() => T;
+  aggregate: <T = AggregateInstancePromise>() => T;
+}
+
+export interface InstanceConnectionSubscription
+  extends Promise<AsyncIterator<InstanceConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<InstanceEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateInstanceSubscription>() => T;
+}
+
+export interface InstanceEdge {
+  node: Instance;
+  cursor: String;
+}
+
+export interface InstanceEdgePromise
+  extends Promise<InstanceEdge>,
+    Fragmentable {
+  node: <T = InstancePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface InstanceEdgeSubscription
+  extends Promise<AsyncIterator<InstanceEdge>>,
+    Fragmentable {
+  node: <T = InstanceSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateInstance {
+  count: Int;
+}
+
+export interface AggregateInstancePromise
+  extends Promise<AggregateInstance>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateInstanceSubscription
+  extends Promise<AsyncIterator<AggregateInstance>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface RealmConnection {
+  pageInfo: PageInfo;
+  edges: RealmEdge[];
+}
+
+export interface RealmConnectionPromise
+  extends Promise<RealmConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<RealmEdge>>() => T;
+  aggregate: <T = AggregateRealmPromise>() => T;
+}
+
+export interface RealmConnectionSubscription
+  extends Promise<AsyncIterator<RealmConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<RealmEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateRealmSubscription>() => T;
+}
+
+export interface RealmEdge {
+  node: Realm;
+  cursor: String;
+}
+
+export interface RealmEdgePromise extends Promise<RealmEdge>, Fragmentable {
+  node: <T = RealmPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface RealmEdgeSubscription
+  extends Promise<AsyncIterator<RealmEdge>>,
+    Fragmentable {
+  node: <T = RealmSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateRealm {
+  count: Int;
+}
+
+export interface AggregateRealmPromise
+  extends Promise<AggregateRealm>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateRealmSubscription
+  extends Promise<AsyncIterator<AggregateRealm>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
 }
 
 export interface UserEdge {
@@ -466,97 +4834,6 @@ export interface AggregateUserSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface Workspace {
-  id: ID_Output;
-  title: String;
-}
-
-export interface WorkspacePromise extends Promise<Workspace>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  workers: <T = FragmentableArray<User>>(args?: {
-    where?: UserWhereInput;
-    orderBy?: UserOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface WorkspaceSubscription
-  extends Promise<AsyncIterator<Workspace>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  workers: <T = Promise<AsyncIterator<UserSubscription>>>(args?: {
-    where?: UserWhereInput;
-    orderBy?: UserOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface WorkspaceConnection {
-  pageInfo: PageInfo;
-  edges: WorkspaceEdge[];
-}
-
-export interface WorkspaceConnectionPromise
-  extends Promise<WorkspaceConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<WorkspaceEdge>>() => T;
-  aggregate: <T = AggregateWorkspacePromise>() => T;
-}
-
-export interface WorkspaceConnectionSubscription
-  extends Promise<AsyncIterator<WorkspaceConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<WorkspaceEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateWorkspaceSubscription>() => T;
-}
-
-export interface WorkspaceEdge {
-  node: Workspace;
-  cursor: String;
-}
-
-export interface WorkspaceEdgePromise
-  extends Promise<WorkspaceEdge>,
-    Fragmentable {
-  node: <T = WorkspacePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface WorkspaceEdgeSubscription
-  extends Promise<AsyncIterator<WorkspaceEdge>>,
-    Fragmentable {
-  node: <T = WorkspaceSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateWorkspace {
-  count: Int;
-}
-
-export interface AggregateWorkspacePromise
-  extends Promise<AggregateWorkspace>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateWorkspaceSubscription
-  extends Promise<AsyncIterator<AggregateWorkspace>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
 export interface BatchPayload {
   count: Long;
 }
@@ -571,6 +4848,570 @@ export interface BatchPayloadSubscription
   extends Promise<AsyncIterator<BatchPayload>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface CharacterSubscriptionPayload {
+  mutation: MutationType;
+  node: Character;
+  updatedFields: String[];
+  previousValues: CharacterPreviousValues;
+}
+
+export interface CharacterSubscriptionPayloadPromise
+  extends Promise<CharacterSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CharacterPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CharacterPreviousValuesPromise>() => T;
+}
+
+export interface CharacterSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CharacterSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CharacterSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CharacterPreviousValuesSubscription>() => T;
+}
+
+export interface CharacterPreviousValues {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  name: String;
+  class: CharacterClassEnum;
+}
+
+export interface CharacterPreviousValuesPromise
+  extends Promise<CharacterPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  name: () => Promise<String>;
+  class: () => Promise<CharacterClassEnum>;
+}
+
+export interface CharacterPreviousValuesSubscription
+  extends Promise<AsyncIterator<CharacterPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  name: () => Promise<AsyncIterator<String>>;
+  class: () => Promise<AsyncIterator<CharacterClassEnum>>;
+}
+
+export interface GuildSubscriptionPayload {
+  mutation: MutationType;
+  node: Guild;
+  updatedFields: String[];
+  previousValues: GuildPreviousValues;
+}
+
+export interface GuildSubscriptionPayloadPromise
+  extends Promise<GuildSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GuildPreviousValuesPromise>() => T;
+}
+
+export interface GuildSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GuildSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GuildPreviousValuesSubscription>() => T;
+}
+
+export interface GuildPreviousValues {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  name: String;
+  avatar?: String;
+  lootingSystem: GuildLootingSystem;
+}
+
+export interface GuildPreviousValuesPromise
+  extends Promise<GuildPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  name: () => Promise<String>;
+  avatar: () => Promise<String>;
+  lootingSystem: () => Promise<GuildLootingSystem>;
+}
+
+export interface GuildPreviousValuesSubscription
+  extends Promise<AsyncIterator<GuildPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  name: () => Promise<AsyncIterator<String>>;
+  avatar: () => Promise<AsyncIterator<String>>;
+  lootingSystem: () => Promise<AsyncIterator<GuildLootingSystem>>;
+}
+
+export interface GuildApplicationSubscriptionPayload {
+  mutation: MutationType;
+  node: GuildApplication;
+  updatedFields: String[];
+  previousValues: GuildApplicationPreviousValues;
+}
+
+export interface GuildApplicationSubscriptionPayloadPromise
+  extends Promise<GuildApplicationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildApplicationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GuildApplicationPreviousValuesPromise>() => T;
+}
+
+export interface GuildApplicationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GuildApplicationSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildApplicationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GuildApplicationPreviousValuesSubscription>() => T;
+}
+
+export interface GuildApplicationPreviousValues {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  status: GuildApplicationStatus;
+  comment?: String;
+}
+
+export interface GuildApplicationPreviousValuesPromise
+  extends Promise<GuildApplicationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  status: () => Promise<GuildApplicationStatus>;
+  comment: () => Promise<String>;
+}
+
+export interface GuildApplicationPreviousValuesSubscription
+  extends Promise<AsyncIterator<GuildApplicationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  status: () => Promise<AsyncIterator<GuildApplicationStatus>>;
+  comment: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GuildApplicationFormSubscriptionPayload {
+  mutation: MutationType;
+  node: GuildApplicationForm;
+  updatedFields: String[];
+  previousValues: GuildApplicationFormPreviousValues;
+}
+
+export interface GuildApplicationFormSubscriptionPayloadPromise
+  extends Promise<GuildApplicationFormSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildApplicationFormPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GuildApplicationFormPreviousValuesPromise>() => T;
+}
+
+export interface GuildApplicationFormSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildApplicationFormSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GuildApplicationFormPreviousValuesSubscription>() => T;
+}
+
+export interface GuildApplicationFormPreviousValues {
+  id: UUID;
+  lastUpdatedAt: DateTimeOutput;
+}
+
+export interface GuildApplicationFormPreviousValuesPromise
+  extends Promise<GuildApplicationFormPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  lastUpdatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface GuildApplicationFormPreviousValuesSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  lastUpdatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface GuildApplicationFormQuestionSubscriptionPayload {
+  mutation: MutationType;
+  node: GuildApplicationFormQuestion;
+  updatedFields: String[];
+  previousValues: GuildApplicationFormQuestionPreviousValues;
+}
+
+export interface GuildApplicationFormQuestionSubscriptionPayloadPromise
+  extends Promise<GuildApplicationFormQuestionSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildApplicationFormQuestionPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <
+    T = GuildApplicationFormQuestionPreviousValuesPromise
+  >() => T;
+}
+
+export interface GuildApplicationFormQuestionSubscriptionPayloadSubscription
+  extends Promise<
+      AsyncIterator<GuildApplicationFormQuestionSubscriptionPayload>
+    >,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildApplicationFormQuestionSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <
+    T = GuildApplicationFormQuestionPreviousValuesSubscription
+  >() => T;
+}
+
+export interface GuildApplicationFormQuestionPreviousValues {
+  id: UUID;
+  question: String;
+  sequence?: Float;
+}
+
+export interface GuildApplicationFormQuestionPreviousValuesPromise
+  extends Promise<GuildApplicationFormQuestionPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  question: () => Promise<String>;
+  sequence: () => Promise<Float>;
+}
+
+export interface GuildApplicationFormQuestionPreviousValuesSubscription
+  extends Promise<AsyncIterator<GuildApplicationFormQuestionPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  question: () => Promise<AsyncIterator<String>>;
+  sequence: () => Promise<AsyncIterator<Float>>;
+}
+
+export interface GuildApplicationFormQuestionAnswerSubscriptionPayload {
+  mutation: MutationType;
+  node: GuildApplicationFormQuestionAnswer;
+  updatedFields: String[];
+  previousValues: GuildApplicationFormQuestionAnswerPreviousValues;
+}
+
+export interface GuildApplicationFormQuestionAnswerSubscriptionPayloadPromise
+  extends Promise<GuildApplicationFormQuestionAnswerSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildApplicationFormQuestionAnswerPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <
+    T = GuildApplicationFormQuestionAnswerPreviousValuesPromise
+  >() => T;
+}
+
+export interface GuildApplicationFormQuestionAnswerSubscriptionPayloadSubscription
+  extends Promise<
+      AsyncIterator<GuildApplicationFormQuestionAnswerSubscriptionPayload>
+    >,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildApplicationFormQuestionAnswerSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <
+    T = GuildApplicationFormQuestionAnswerPreviousValuesSubscription
+  >() => T;
+}
+
+export interface GuildApplicationFormQuestionAnswerPreviousValues {
+  id: UUID;
+  answer: String;
+}
+
+export interface GuildApplicationFormQuestionAnswerPreviousValuesPromise
+  extends Promise<GuildApplicationFormQuestionAnswerPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  answer: () => Promise<String>;
+}
+
+export interface GuildApplicationFormQuestionAnswerPreviousValuesSubscription
+  extends Promise<
+      AsyncIterator<GuildApplicationFormQuestionAnswerPreviousValues>
+    >,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  answer: () => Promise<AsyncIterator<String>>;
+}
+
+export interface GuildEventSubscriptionPayload {
+  mutation: MutationType;
+  node: GuildEvent;
+  updatedFields: String[];
+  previousValues: GuildEventPreviousValues;
+}
+
+export interface GuildEventSubscriptionPayloadPromise
+  extends Promise<GuildEventSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildEventPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GuildEventPreviousValuesPromise>() => T;
+}
+
+export interface GuildEventSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GuildEventSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildEventSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GuildEventPreviousValuesSubscription>() => T;
+}
+
+export interface GuildEventPreviousValues {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  title: String;
+  startingAt: DateTimeOutput;
+}
+
+export interface GuildEventPreviousValuesPromise
+  extends Promise<GuildEventPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  startingAt: () => Promise<DateTimeOutput>;
+}
+
+export interface GuildEventPreviousValuesSubscription
+  extends Promise<AsyncIterator<GuildEventPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  startingAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface GuildMemberSubscriptionPayload {
+  mutation: MutationType;
+  node: GuildMember;
+  updatedFields: String[];
+  previousValues: GuildMemberPreviousValues;
+}
+
+export interface GuildMemberSubscriptionPayloadPromise
+  extends Promise<GuildMemberSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildMemberPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GuildMemberPreviousValuesPromise>() => T;
+}
+
+export interface GuildMemberSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GuildMemberSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildMemberSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GuildMemberPreviousValuesSubscription>() => T;
+}
+
+export interface GuildMemberPreviousValues {
+  id: UUID;
+  guildRole: GuildRole;
+  role: Role;
+  dkp?: Float;
+}
+
+export interface GuildMemberPreviousValuesPromise
+  extends Promise<GuildMemberPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  guildRole: () => Promise<GuildRole>;
+  role: () => Promise<Role>;
+  dkp: () => Promise<Float>;
+}
+
+export interface GuildMemberPreviousValuesSubscription
+  extends Promise<AsyncIterator<GuildMemberPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  guildRole: () => Promise<AsyncIterator<GuildRole>>;
+  role: () => Promise<AsyncIterator<Role>>;
+  dkp: () => Promise<AsyncIterator<Float>>;
+}
+
+export interface GuildPostSubscriptionPayload {
+  mutation: MutationType;
+  node: GuildPost;
+  updatedFields: String[];
+  previousValues: GuildPostPreviousValues;
+}
+
+export interface GuildPostSubscriptionPayloadPromise
+  extends Promise<GuildPostSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GuildPostPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GuildPostPreviousValuesPromise>() => T;
+}
+
+export interface GuildPostSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GuildPostSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GuildPostSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GuildPostPreviousValuesSubscription>() => T;
+}
+
+export interface GuildPostPreviousValues {
+  id: UUID;
+  createdAt: DateTimeOutput;
+  title: String;
+  body: String;
+}
+
+export interface GuildPostPreviousValuesPromise
+  extends Promise<GuildPostPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  title: () => Promise<String>;
+  body: () => Promise<String>;
+}
+
+export interface GuildPostPreviousValuesSubscription
+  extends Promise<AsyncIterator<GuildPostPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  title: () => Promise<AsyncIterator<String>>;
+  body: () => Promise<AsyncIterator<String>>;
+}
+
+export interface InstanceSubscriptionPayload {
+  mutation: MutationType;
+  node: Instance;
+  updatedFields: String[];
+  previousValues: InstancePreviousValues;
+}
+
+export interface InstanceSubscriptionPayloadPromise
+  extends Promise<InstanceSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = InstancePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = InstancePreviousValuesPromise>() => T;
+}
+
+export interface InstanceSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<InstanceSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = InstanceSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = InstancePreviousValuesSubscription>() => T;
+}
+
+export interface InstancePreviousValues {
+  id: UUID;
+  name: String;
+  Abbreviation?: String;
+  image?: String;
+  wiki?: String;
+  suggestedLevel?: String;
+  playersCap?: Float;
+  location?: String;
+}
+
+export interface InstancePreviousValuesPromise
+  extends Promise<InstancePreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  name: () => Promise<String>;
+  Abbreviation: () => Promise<String>;
+  image: () => Promise<String>;
+  wiki: () => Promise<String>;
+  suggestedLevel: () => Promise<String>;
+  playersCap: () => Promise<Float>;
+  location: () => Promise<String>;
+}
+
+export interface InstancePreviousValuesSubscription
+  extends Promise<AsyncIterator<InstancePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  name: () => Promise<AsyncIterator<String>>;
+  Abbreviation: () => Promise<AsyncIterator<String>>;
+  image: () => Promise<AsyncIterator<String>>;
+  wiki: () => Promise<AsyncIterator<String>>;
+  suggestedLevel: () => Promise<AsyncIterator<String>>;
+  playersCap: () => Promise<AsyncIterator<Float>>;
+  location: () => Promise<AsyncIterator<String>>;
+}
+
+export interface RealmSubscriptionPayload {
+  mutation: MutationType;
+  node: Realm;
+  updatedFields: String[];
+  previousValues: RealmPreviousValues;
+}
+
+export interface RealmSubscriptionPayloadPromise
+  extends Promise<RealmSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = RealmPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RealmPreviousValuesPromise>() => T;
+}
+
+export interface RealmSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RealmSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RealmSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RealmPreviousValuesSubscription>() => T;
+}
+
+export interface RealmPreviousValues {
+  id: UUID;
+  name: String;
+  type: RealmType;
+  population: RealmPopulation;
+}
+
+export interface RealmPreviousValuesPromise
+  extends Promise<RealmPreviousValues>,
+    Fragmentable {
+  id: () => Promise<UUID>;
+  name: () => Promise<String>;
+  type: () => Promise<RealmType>;
+  population: () => Promise<RealmPopulation>;
+}
+
+export interface RealmPreviousValuesSubscription
+  extends Promise<AsyncIterator<RealmPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<UUID>>;
+  name: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<RealmType>>;
+  population: () => Promise<AsyncIterator<RealmPopulation>>;
 }
 
 export interface UserSubscriptionPayload {
@@ -599,73 +5440,50 @@ export interface UserSubscriptionPayloadSubscription
 }
 
 export interface UserPreviousValues {
-  id: ID_Output;
-  name: String;
+  id: UUID;
+  createdAt: DateTimeOutput;
+  displayName: String;
+  email: String;
+  password: String;
+  confirmed: Boolean;
+  avatar?: String;
 }
 
 export interface UserPreviousValuesPromise
   extends Promise<UserPreviousValues>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
+  id: () => Promise<UUID>;
+  createdAt: () => Promise<DateTimeOutput>;
+  displayName: () => Promise<String>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  confirmed: () => Promise<Boolean>;
+  avatar: () => Promise<String>;
 }
 
 export interface UserPreviousValuesSubscription
   extends Promise<AsyncIterator<UserPreviousValues>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<AsyncIterator<UUID>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  displayName: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  confirmed: () => Promise<AsyncIterator<Boolean>>;
+  avatar: () => Promise<AsyncIterator<String>>;
 }
 
-export interface WorkspaceSubscriptionPayload {
-  mutation: MutationType;
-  node: Workspace;
-  updatedFields: String[];
-  previousValues: WorkspacePreviousValues;
-}
-
-export interface WorkspaceSubscriptionPayloadPromise
-  extends Promise<WorkspaceSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = WorkspacePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = WorkspacePreviousValuesPromise>() => T;
-}
-
-export interface WorkspaceSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<WorkspaceSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = WorkspaceSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = WorkspacePreviousValuesSubscription>() => T;
-}
-
-export interface WorkspacePreviousValues {
-  id: ID_Output;
-  title: String;
-}
-
-export interface WorkspacePreviousValuesPromise
-  extends Promise<WorkspacePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-}
-
-export interface WorkspacePreviousValuesSubscription
-  extends Promise<AsyncIterator<WorkspacePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-}
+export type UUID = string;
 
 /*
-The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
+DateTime scalar input type, allowing Date
 */
-export type ID_Input = string | number;
-export type ID_Output = string;
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
@@ -673,14 +5491,25 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string;
 
 /*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
+
+/*
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). 
+*/
+export type Float = number;
+
+/*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
 export type Int = number;
 
 /*
-The `Boolean` scalar type represents `true` or `false`.
+The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
-export type Boolean = boolean;
+export type ID_Input = string | number;
+export type ID_Output = string;
 
 export type Long = string;
 
@@ -690,11 +5519,79 @@ export type Long = string;
 
 export const models: Model[] = [
   {
-    name: "User",
+    name: "Character",
     embedded: false
   },
   {
-    name: "Workspace",
+    name: "CharacterClassEnum",
+    embedded: false
+  },
+  {
+    name: "Guild",
+    embedded: false
+  },
+  {
+    name: "GuildApplication",
+    embedded: false
+  },
+  {
+    name: "GuildApplicationForm",
+    embedded: false
+  },
+  {
+    name: "GuildApplicationFormQuestion",
+    embedded: false
+  },
+  {
+    name: "GuildApplicationFormQuestionAnswer",
+    embedded: false
+  },
+  {
+    name: "GuildApplicationStatus",
+    embedded: false
+  },
+  {
+    name: "GuildEvent",
+    embedded: false
+  },
+  {
+    name: "GuildLootingSystem",
+    embedded: false
+  },
+  {
+    name: "GuildMember",
+    embedded: false
+  },
+  {
+    name: "GuildPost",
+    embedded: false
+  },
+  {
+    name: "GuildRole",
+    embedded: false
+  },
+  {
+    name: "Instance",
+    embedded: false
+  },
+  {
+    name: "Realm",
+    embedded: false
+  },
+  {
+    name: "RealmPopulation",
+    embedded: false
+  },
+  {
+    name: "RealmType",
+    embedded: false
+  },
+  {
+    name: "Role",
+    embedded: false
+  },
+  {
+    name: "User",
     embedded: false
   }
 ];

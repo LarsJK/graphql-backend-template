@@ -1,0 +1,29 @@
+type GuildApplication {
+  id: UUID! @unique
+  createdAt: DateTime!
+  guild: Guild!
+  character: Character!
+  answers: [GuildApplicationFormQuestionAnswer!]!
+  status: GuildApplicationStatus!
+  comment: String
+  # upvotes: [GuildApplicationUpVote!]!
+  # downvotes: [GuildApplicationDownVote!]!
+}
+
+# type GuildApplicationUpVote {
+#  id: UUID! @unique
+#  character: Character!
+#  guildApplication: GuildApplication!
+# }
+
+# type GuildApplicationDownVote {
+#  id: UUID! @unique
+#  character: Character!
+#  guildApplication: GuildApplication!
+# }
+
+enum GuildApplicationStatus {
+  ACCEPTED
+  DECLINED
+  NEW
+}

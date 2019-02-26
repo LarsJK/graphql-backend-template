@@ -1,0 +1,24 @@
+type Guild {
+  id: UUID! @unique
+  createdAt: DateTime!
+
+  name: String!
+  avatar: String
+
+  realm: Realm!
+  lootingSystem: GuildLootingSystem! @default(value: "NONE")
+
+  roster: [GuildMember!]!
+  posts: [GuildPost!]!
+  events: [GuildEvent!]!
+
+  applications: [GuildApplication!]!
+  applicationForm: GuildApplicationForm
+}
+
+enum GuildLootingSystem {
+  DKP
+  COUNCIL
+  CUSTOM
+  NONE
+}

@@ -1,0 +1,6 @@
+type GuildApplicationFormQuestionAnswer {
+  id: UUID! @unique
+  application: GuildApplication!
+  question: GuildApplicationFormQuestion!
+  answer: String!
+}

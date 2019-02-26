@@ -1,21 +1,210 @@
 type Query {
-  users: [User]!
-  user(userId: ID!): User
-  workspaces: [Workspace!]!
+  users: [User!]!
+  user(id: ID!): User
 }
-
 type Mutation {
-  createUser(name: String!): User
+  createUser(
+    displayName: String!
+    email: String!
+    password: String!
+    confirmed: Boolean!
+  ): User
   deleteUser(id: ID!): User
 }
 
-type User {
+type Character {
   id: ID!
+  createdAt: String!
+
+  user: User!
+
+  realm: Realm!
   name: String!
+  class: CharacterClassEnum!
+
+  guild: GuildMember
+
+  applications: [GuildApplication!]!
 }
 
-type Workspace {
+enum CharacterClassEnum {
+  DRUID
+  HUNTER
+  MAGE
+  PALADIN
+  PRIEST
+  ROGUE
+  SHAMAN
+  WARLOCK
+  WARRIOR
+}
+scalar Date
+
+type User {
   id: ID!
+  createdAt: Date!
+  displayName: String!
+  email: String!
+  password: String!
+  confirmed: Boolean!
+  avatar: String
+  characters: [Character!]!
+}
+
+type Realm {
+  id: ID!
+  name: String!
+  type: RealmType!
+  population: RealmPopulation!
+  characters: [Character!]!
+  guilds: [Guild!]!
+}
+
+enum RealmType {
+  RP
+  RPPVP
+  PVP
+  NORMAL
+  PVE
+}
+
+enum RealmPopulation {
+  LOW
+  NORMAL
+  HIGH
+  FULL
+}
+type GuildApplication {
+  id: ID!
+  createdAt: String!
+  guild: Guild!
+  character: Character!
+  answers: [GuildApplicationFormQuestionAnswer!]!
+  status: GuildApplicationStatus!
+  comment: String
+  # upvotes: [GuildApplicationUpVote!]!
+  # downvotes: [GuildApplicationDownVote!]!
+}
+
+# type GuildApplicationUpVote {
+#  id: ID!
+#  character: Character!
+#  guildApplication: GuildApplication!
+# }
+
+# type GuildApplicationDownVote {
+#  id: ID!
+#  character: Character!
+#  guildApplication: GuildApplication!
+# }
+
+enum GuildApplicationStatus {
+  ACCEPTED
+  DECLINED
+  NEW
+}
+type GuildApplicationForm {
+  id: ID!
+  lastUpStringdAt: String!
+  guild: Guild!
+  questions: [GuildApplicationFormQuestion!]!
+}
+type GuildApplicationFormQuestion {
+  id: ID!
+  guildApplicationForm: GuildApplicationForm!
+  question: String!
+  sequence: Float
+}
+type GuildApplicationFormQuestionAnswer {
+  id: ID!
+  application: GuildApplication!
+  question: GuildApplicationFormQuestion!
+  answer: String!
+}
+type Guild {
+  id: ID!
+  createdAt: String!
+
+  name: String!
+  avatar: String
+
+  realm: Realm!
+  lootingSystem: GuildLootingSystem!
+  roster: [GuildMember!]!
+  posts: [GuildPost!]!
+  events: [GuildEvent!]!
+
+  applications: [GuildApplication!]!
+  applicationForm: GuildApplicationForm
+}
+
+enum GuildLootingSystem {
+  DKP
+  COUNCIL
+  CUSTOM
+  NONE
+}
+type GuildEvent {
+  id: ID!
+  createdAt: String!
+
   title: String!
-  workers: [User!]!
+  startingAt: String!
+
+  instance: Instance!
+  guild: Guild!
+
+  roster: [GuildMember!]!
+}
+type GuildMember {
+  id: ID!
+  character: Character!
+  guild: Guild!
+  guildRole: GuildRole!
+  role: Role!
+
+  dkp: Float
+
+  events: [GuildEvent!]!
+  # upvotes: []
+  # downvotes: []
+}
+
+enum GuildRole {
+  GuildMaster
+  Officer
+  Member
+  Trail
+  Alt
+}
+
+enum Role {
+  TANK
+  MELEE
+  RANGED
+  HEALER
+}
+type GuildPost {
+  id: ID!
+  createdAt: String!
+  guild: Guild!
+  title: String!
+  body: String!
+  # media: [PostMedia!]!
+}
+
+#type PostMedia {
+#  id: ID!
+#  post: Post!
+#  url: String!
+#}
+type Instance {
+  id: ID!
+  name: String!
+  Abbreviation: String
+  image: String
+  wiki: String
+  suggestedLevel: String
+  playersCap: Float
+  location: String
 }

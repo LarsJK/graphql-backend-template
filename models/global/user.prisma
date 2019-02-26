@@ -1,0 +1,10 @@
+type User {
+  id: UUID! @unique
+  createdAt: DateTime!
+  displayName: String!
+  email: String! @unique
+  password: String!
+  confirmed: Boolean! @default(value: "false")
+  avatar: String
+  characters: [Character!]!
+}

@@ -1,14 +1,15 @@
+import { RealmResolvers } from "../generated/graphqlgen";
+
 // This resolver file was scaffolded by github.com/prisma/graphqlgen, DO NOT EDIT.
 // Please do not import this file directly but copy & paste to your application code.
 
-import { QueryResolvers } from "../graphqlgen";
+export const Realm: RealmResolvers.Type = {
+  ...RealmResolvers.defaultResolvers,
 
-export const Query: QueryResolvers.Type = {
-  ...QueryResolvers.defaultResolvers,
-  users: (parent, args, ctx) => {
+  characters: (parent, args, ctx) => {
     throw new Error("Resolver not implemented");
   },
-  user: (parent, args, ctx) => {
+  guilds: (parent, args, ctx) => {
     throw new Error("Resolver not implemented");
   }
 };

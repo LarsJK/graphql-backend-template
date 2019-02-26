@@ -1,0 +1,6 @@
+type GuildApplicationFormQuestion {
+  id: UUID! @unique
+  guildApplicationForm: GuildApplicationForm!
+  question: String!
+  sequence: Float
+}

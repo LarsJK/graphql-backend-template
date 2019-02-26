@@ -1,0 +1,10 @@
+type Instance {
+  id: UUID! @unique
+  name: String! @unique
+  Abbreviation: String
+  image: String
+  wiki: String
+  suggestedLevel: String
+  playersCap: Float
+  location: String
+}

@@ -1,0 +1,28 @@
+type GuildMember {
+  id: UUID! @unique
+  character: Character!
+  guild: Guild!
+  guildRole: GuildRole!
+  role: Role!
+
+  dkp: Float
+
+  events: [GuildEvent!]!
+  # upvotes: []
+  # downvotes: []
+}
+
+enum GuildRole {
+  GuildMaster
+  Officer
+  Member
+  Trail
+  Alt
+}
+
+enum Role {
+  TANK
+  MELEE
+  RANGED
+  HEALER
+}

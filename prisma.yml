@@ -1,5 +1,21 @@
 endpoint: http://localhost:4466
-datamodel: datamodel.prisma
+datamodel:
+  # guild
+  - ./models/guild/guild.prisma
+  - ./models/guild/guildEvent.prisma
+  - ./models/guild/guildMember.prisma
+  - ./models/guild/guildPost.prisma
+  # guild application
+  - ./models/guild/application/guildApplication.prisma
+  - ./models/guild/application/guildApplicationForm.prisma
+  - ./models/guild/application/guildApplicationFormQuestion.prisma
+  - ./models/guild/application/guildApplicationFormQuestionAnswer.prisma
+  # world
+  - ./models/world/instance.prisma
+  #global
+  - ./models/global/character.prisma
+  - ./models/global/realm.prisma
+  - ./models/global/user.prisma
 generate:
   - generator: typescript-client
     output: ./src/generated/prisma-client/

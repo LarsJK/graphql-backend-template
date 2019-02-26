@@ -1,0 +1,14 @@
+type GuildPost {
+  id: UUID! @unique
+  createdAt: DateTime!
+  guild: Guild!
+  title: String!
+  body: String!
+  # media: [PostMedia!]!
+}
+
+#type PostMedia {
+#  id: UUID! @unique
+#  post: Post!
+#  url: String!
+#}

@@ -1,0 +1,26 @@
+type Character {
+  id: UUID! @unique
+  createdAt: DateTime!
+
+  user: User!
+
+  realm: Realm!
+  name: String!
+  class: CharacterClassEnum!
+
+  guild: GuildMember
+
+  applications: [GuildApplication!]!
+}
+
+enum CharacterClassEnum {
+  DRUID
+  HUNTER
+  MAGE
+  PALADIN
+  PRIEST
+  ROGUE
+  SHAMAN
+  WARLOCK
+  WARRIOR
+}

@@ -1,14 +1,16 @@
 import { QueryResolvers } from "../generated/graphqlgen";
+import { prisma } from "../generated/prisma-client";
+
+// This resolver file was scaffolded by github.com/prisma/graphqlgen, DO NOT EDIT.
+// Please do not import this file directly but copy & paste to your application code.
+
 
 export const Query: QueryResolvers.Type = {
   ...QueryResolvers.defaultResolvers,
-  users: (parent, args, ctx) => {
-    return ctx.prisma.users();
+  users: async (parent, args, ctx) => {
+    return await prisma.users();
   },
   user: (parent, args, ctx) => {
-    return ctx.prisma.user({ id: args.userId });
-  },
-  workspaces: (parent, args, ctx) => {
-    return ctx.prisma.workspaces();
+    throw new Error("Resolver not implemented");
   }
 };

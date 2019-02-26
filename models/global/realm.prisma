@@ -1,0 +1,23 @@
+type Realm {
+  id: UUID! @unique
+  name: String! @unique
+  type: RealmType! @default(value: "PVE")
+  population: RealmPopulation! @default(value: "NORMAL")
+  characters: [Character!]!
+  guilds: [Guild!]!
+}
+
+enum RealmType {
+  RP
+  RPPVP
+  PVP
+  NORMAL
+  PVE
+}
+
+enum RealmPopulation {
+  LOW
+  NORMAL
+  HIGH
+  FULL
+}

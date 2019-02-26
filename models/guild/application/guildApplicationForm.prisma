@@ -1,0 +1,6 @@
+type GuildApplicationForm {
+  id: UUID! @unique
+  lastUpdatedAt: DateTime!
+  guild: Guild!
+  questions: [GuildApplicationFormQuestion!]!
+}
