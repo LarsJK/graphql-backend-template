@@ -7,9 +7,9 @@ export const Realm: RealmResolvers.Type = {
   ...RealmResolvers.defaultResolvers,
 
   characters: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.realm({ id: parent.id }).characters();
   },
   guilds: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.realm({ id: parent.id }).guilds();
   }
 };

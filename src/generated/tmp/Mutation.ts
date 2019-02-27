@@ -10,5 +10,17 @@ export const Mutation: MutationResolvers.Type = {
   },
   deleteUser: (parent, args, ctx) => {
     throw new Error("Resolver not implemented");
+  },
+  createCharacter: (parent, args, ctx) => {
+    throw new Error("Resolver not implemented");
+  },
+  createRealm: (parent, args, ctx) => {
+    throw new Error("Resolver not implemented");
+  },
+  createGuild: (parent, args, ctx) => {
+    throw new Error("Resolver not implemented");
+  },
+  createGuildMember: (parent, args, ctx) => {
+    throw new Error("Resolver not implemented");
   }
 };

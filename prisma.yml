@@ -5,7 +5,6 @@ datamodel:
   - ./models/guild/guildEvent.prisma
   - ./models/guild/guildMember.prisma
   - ./models/guild/guildPost.prisma
-  # guild application
   - ./models/guild/application/guildApplication.prisma
   - ./models/guild/application/guildApplicationForm.prisma
   - ./models/guild/application/guildApplicationFormQuestion.prisma

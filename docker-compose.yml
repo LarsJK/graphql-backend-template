@@ -1,10 +1,10 @@
-version: "3"
+version: '3'
 services:
   prisma:
     image: prismagraphql/prisma:1.26
     restart: always
     ports:
-      - "4466:4466"
+    - "4466:4466"
     environment:
       PRISMA_CONFIG: |
         port: 4466
@@ -23,6 +23,4 @@ services:
       POSTGRES_USER: prisma
       POSTGRES_PASSWORD: prisma
     volumes:
-      - postgres:/var/lib/postgresql/data
-volumes:
-  postgres:
+      - ./postgres:/var/lib/postgresql/data

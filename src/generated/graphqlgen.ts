@@ -41,6 +41,10 @@ export namespace QueryResolvers {
     id: string;
   }
 
+  export interface ArgsGuild {
+    id: string;
+  }
+
   export type UsersResolver =
     | ((
         parent: undefined,
@@ -73,6 +77,74 @@ export namespace QueryResolvers {
           ctx: Context,
           info: GraphQLResolveInfo
         ) => User | null | Promise<User | null>;
+      };
+
+  export type RealmsResolver =
+    | ((
+        parent: undefined,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => Realm[] | Promise<Realm[]>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Realm[] | Promise<Realm[]>;
+      };
+
+  export type CharactersResolver =
+    | ((
+        parent: undefined,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => Character[] | null | Promise<Character[] | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Character[] | null | Promise<Character[] | null>;
+      };
+
+  export type GuildResolver =
+    | ((
+        parent: undefined,
+        args: ArgsGuild,
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => Guild | null | Promise<Guild | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsGuild,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Guild | null | Promise<Guild | null>;
+      };
+
+  export type GuildsResolver =
+    | ((
+        parent: undefined,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => Guild[] | Promise<Guild[]>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Guild[] | Promise<Guild[]>;
       };
 
   export interface Type {
@@ -108,6 +180,74 @@ export namespace QueryResolvers {
             ctx: Context,
             info: GraphQLResolveInfo
           ) => User | null | Promise<User | null>;
+        };
+
+    realms:
+      | ((
+          parent: undefined,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Realm[] | Promise<Realm[]>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: {},
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => Realm[] | Promise<Realm[]>;
+        };
+
+    characters:
+      | ((
+          parent: undefined,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Character[] | null | Promise<Character[] | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: {},
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => Character[] | null | Promise<Character[] | null>;
+        };
+
+    guild:
+      | ((
+          parent: undefined,
+          args: ArgsGuild,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Guild | null | Promise<Guild | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsGuild,
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => Guild | null | Promise<Guild | null>;
+        };
+
+    guilds:
+      | ((
+          parent: undefined,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Guild[] | Promise<Guild[]>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: {},
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => Guild[] | Promise<Guild[]>;
         };
   }
 }
@@ -2975,6 +3115,23 @@ export namespace GuildApplicationFormResolvers {
 export namespace MutationResolvers {
   export const defaultResolvers = {};
 
+  export interface CreateCharacterInput {
+    user: string;
+    realm: string;
+    name: string;
+    class?: CharacterClassEnum | null;
+  }
+  export interface CreateGuildInput {
+    realm: string;
+    name: string;
+  }
+  export interface JoinGuildInput {
+    character: string;
+    guild: string;
+    guildRole: GuildRole;
+    role: Role;
+  }
+
   export interface ArgsCreateUser {
     displayName: string;
     email: string;
@@ -2984,6 +3141,24 @@ export namespace MutationResolvers {
 
   export interface ArgsDeleteUser {
     id: string;
+  }
+
+  export interface ArgsCreateCharacter {
+    input: CreateCharacterInput;
+  }
+
+  export interface ArgsCreateRealm {
+    name: string;
+    type: RealmType;
+    population: RealmPopulation;
+  }
+
+  export interface ArgsCreateGuild {
+    input: CreateGuildInput;
+  }
+
+  export interface ArgsCreateGuildMember {
+    input: JoinGuildInput;
   }
 
   export type CreateUserResolver =
@@ -3020,6 +3195,74 @@ export namespace MutationResolvers {
         ) => User | null | Promise<User | null>;
       };
 
+  export type CreateCharacterResolver =
+    | ((
+        parent: undefined,
+        args: ArgsCreateCharacter,
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => Character | null | Promise<Character | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsCreateCharacter,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Character | null | Promise<Character | null>;
+      };
+
+  export type CreateRealmResolver =
+    | ((
+        parent: undefined,
+        args: ArgsCreateRealm,
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => Realm | null | Promise<Realm | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsCreateRealm,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Realm | null | Promise<Realm | null>;
+      };
+
+  export type CreateGuildResolver =
+    | ((
+        parent: undefined,
+        args: ArgsCreateGuild,
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => Guild | null | Promise<Guild | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsCreateGuild,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Guild | null | Promise<Guild | null>;
+      };
+
+  export type CreateGuildMemberResolver =
+    | ((
+        parent: undefined,
+        args: ArgsCreateGuildMember,
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => GuildMember | null | Promise<GuildMember | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsCreateGuildMember,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => GuildMember | null | Promise<GuildMember | null>;
+      };
+
   export interface Type {
     createUser:
       | ((
@@ -3053,6 +3296,74 @@ export namespace MutationResolvers {
             ctx: Context,
             info: GraphQLResolveInfo
           ) => User | null | Promise<User | null>;
+        };
+
+    createCharacter:
+      | ((
+          parent: undefined,
+          args: ArgsCreateCharacter,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Character | null | Promise<Character | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsCreateCharacter,
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => Character | null | Promise<Character | null>;
+        };
+
+    createRealm:
+      | ((
+          parent: undefined,
+          args: ArgsCreateRealm,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Realm | null | Promise<Realm | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsCreateRealm,
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => Realm | null | Promise<Realm | null>;
+        };
+
+    createGuild:
+      | ((
+          parent: undefined,
+          args: ArgsCreateGuild,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => Guild | null | Promise<Guild | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsCreateGuild,
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => Guild | null | Promise<Guild | null>;
+        };
+
+    createGuildMember:
+      | ((
+          parent: undefined,
+          args: ArgsCreateGuildMember,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => GuildMember | null | Promise<GuildMember | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsCreateGuildMember,
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => GuildMember | null | Promise<GuildMember | null>;
         };
   }
 }

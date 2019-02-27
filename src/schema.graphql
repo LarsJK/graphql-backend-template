@@ -1,6 +1,10 @@
 type Query {
   users: [User!]!
   user(id: ID!): User
+  realms: [Realm!]!
+  characters: [Character!]
+  guild(id: ID!): Guild
+  guilds: [Guild!]!
 }
 type Mutation {
   createUser(
@@ -10,6 +14,34 @@ type Mutation {
     confirmed: Boolean!
   ): User
   deleteUser(id: ID!): User
+
+  createCharacter(input: CreateCharacterInput!): Character
+
+  createRealm(
+    name: String!
+    type: RealmType!
+    population: RealmPopulation!
+  ): Realm
+
+  createGuild(input: CreateGuildInput!): Guild
+
+  createGuildMember(input: JoinGuildInput!): GuildMember
+}
+input JoinGuildInput {
+  character: ID!
+  guild: ID!
+  guildRole: GuildRole!
+  role: Role!
+}
+input CreateGuildInput {
+  realm: ID!
+  name: String!
+}
+input CreateCharacterInput {
+  user: ID!
+  realm: ID!
+  name: String!
+  class: CharacterClassEnum
 }
 
 type Character {

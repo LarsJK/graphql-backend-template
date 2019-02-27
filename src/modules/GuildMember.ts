@@ -7,12 +7,12 @@ export const GuildMember: GuildMemberResolvers.Type = {
   ...GuildMemberResolvers.defaultResolvers,
 
   character: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guildMember({ id: parent.id }).character();
   },
   guild: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guildMember({ id: parent.id }).guild();
   },
   events: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guildMember({ id: parent.id }).events();
   }
 };

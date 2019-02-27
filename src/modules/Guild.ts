@@ -7,21 +7,21 @@ export const Guild: GuildResolvers.Type = {
   ...GuildResolvers.defaultResolvers,
 
   realm: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guild({ id: parent.id }).realm();
   },
   roster: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guild({ id: parent.id }).roster();
   },
   posts: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guild({ id: parent.id }).posts();
   },
   events: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guild({ id: parent.id }).events();
   },
   applications: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guild({ id: parent.id }).applications();
   },
   applicationForm: (parent, args, ctx) => {
-    throw new Error("Resolver not implemented");
+    return ctx.prisma.guild({ id: parent.id }).applicationForm();
   }
 };

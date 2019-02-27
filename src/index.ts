@@ -1,26 +1,13 @@
 import { ApolloServer } from "apollo-server";
 import * as typeDefs from "./schema.graphql";
-import { resolvers } from "./resolvers";
 import { prisma } from "./generated/prisma-client";
 import { Context } from "./types";
+import { resolvers } from "./modules";
 
 const context: Context = {
   prisma
 };
 
-async function seed() {
-  try {
-    const user = await prisma.createUser({
-      displayName: "Roxiya",
-      email: "kb@kb.no",
-      password: "kb123"
-    });
-    console.log(user);
-  } catch (error) {
-    console.log(error);
-  }
-}
-seed();
 const server = new ApolloServer({
   typeDefs,
   resolvers: resolvers as any,
