@@ -22,5 +22,8 @@ export const Mutation: MutationResolvers.Type = {
   },
   createGuildMember: (parent, args, ctx) => {
     throw new Error("Resolver not implemented");
+  },
+  deleteGuildMember: (parent, args, ctx) => {
+    throw new Error("Resolver not implemented");
   }
 };

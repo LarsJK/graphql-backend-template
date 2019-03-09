@@ -3131,6 +3131,9 @@ export namespace MutationResolvers {
     guildRole: GuildRole;
     role: Role;
   }
+  export interface DeleteGuildMemberInput {
+    id: string;
+  }
 
   export interface ArgsCreateUser {
     displayName: string;
@@ -3159,6 +3162,10 @@ export namespace MutationResolvers {
 
   export interface ArgsCreateGuildMember {
     input: JoinGuildInput;
+  }
+
+  export interface ArgsDeleteGuildMember {
+    input: DeleteGuildMemberInput;
   }
 
   export type CreateUserResolver =
@@ -3263,6 +3270,23 @@ export namespace MutationResolvers {
         ) => GuildMember | null | Promise<GuildMember | null>;
       };
 
+  export type DeleteGuildMemberResolver =
+    | ((
+        parent: undefined,
+        args: ArgsDeleteGuildMember,
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => GuildMember | null | Promise<GuildMember | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: undefined,
+          args: ArgsDeleteGuildMember,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => GuildMember | null | Promise<GuildMember | null>;
+      };
+
   export interface Type {
     createUser:
       | ((
@@ -3361,6 +3385,23 @@ export namespace MutationResolvers {
           resolve: (
             parent: undefined,
             args: ArgsCreateGuildMember,
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => GuildMember | null | Promise<GuildMember | null>;
+        };
+
+    deleteGuildMember:
+      | ((
+          parent: undefined,
+          args: ArgsDeleteGuildMember,
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => GuildMember | null | Promise<GuildMember | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: undefined,
+            args: ArgsDeleteGuildMember,
             ctx: Context,
             info: GraphQLResolveInfo
           ) => GuildMember | null | Promise<GuildMember | null>;

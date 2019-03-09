@@ -24,8 +24,11 @@ type Mutation {
   ): Realm
 
   createGuild(input: CreateGuildInput!): Guild
-
   createGuildMember(input: JoinGuildInput!): GuildMember
+  deleteGuildMember(input: DeleteGuildMemberInput!): GuildMember
+}
+input DeleteGuildMemberInput {
+  id: ID!
 }
 input JoinGuildInput {
   character: ID!
