@@ -1,17 +1,10 @@
 import { ApolloServer } from "apollo-server";
-import * as typeDefs from "./schema.graphql";
+import schema from "./schema";
 import { prisma } from "./generated/prisma-client";
-import { Context } from "./types";
-import { resolvers } from "./modules";
-
-const context: Context = {
-  prisma
-};
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers: resolvers as any,
-  context
+  schema,
+  context: () => ({ prisma })
 });
 
 server.listen().then(({ url }) => {
